@@ -10,6 +10,9 @@
   --font-roboto: "Roboto", sans-serif;
   --font-sarabun: "Sarabun", sans-serif;
   --font-ibm: "IBM Plex Sans Condensed", sans-serif;
+  --font-bayon: "Bayon", sans-serif;
+  --font-advent: "Advent Pro", sans-serif;
+  --font-inter: "Inter", sans-serif;
 
   --radius-global: 5px;
   --padding-root: 80px;
@@ -27,6 +30,13 @@
     font-weight: 400;
     font-size: 16px;
   }
+
+  a {
+    font-family: var(--font-inter);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--color-logo);
+  }
 }
 
 @layer components {
@@ -34,13 +44,53 @@
     font-family: var(--font-ibm);
     font-weight: 700;
     font-size: 15px;
-    @apply flex items-center justify-between w-[190px] bg-gradient-to-t from-sec to-[#8E4D00] rounded-[var(--radius-global)] h-[40px] cursor-pointer;
+    @apply relative inline-flex h-[40px] w-[190px] cursor-pointer items-center justify-center overflow-hidden rounded-[var(--radius-global)] bg-gradient-to-t from-sec to-[#8E4D00] text-white transition-transform duration-300 ease-out;
   }
 
   .sec-btn {
     font-family: var(--font-ibm);
     font-weight: 700;
     font-size: 15px;
-    @apply flex items-center justify-center w-[190px] rounded-[var(--radius-global)] h-[40px] border cursor-pointer;
+    @apply flex h-[40px] w-[190px] cursor-pointer items-center justify-center rounded-[var(--radius-global)] border;
+  }
+
+  .nav-link {
+    position: relative;
+    text-decoration: none;
+    padding: 6px 10px;
+  }
+
+  .nav-link::before,
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    display: block;
+    border: 0 solid transparent;
+    width: 0%;
+    height: 0%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    top: 0;
+    left: 0;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-link::before {
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+
+  .nav-link:hover::before,
+  .nav-link:hover::after,
+  .nav-link:focus-visible::before,
+  .nav-link:focus-visible::after {
+    width: 10px;
+    height: 10px;
+    border-color: var(--color-logo);
   }
 }
