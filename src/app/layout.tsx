@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Sarabun, IBM_Plex_Sans_Condensed } from 'next/font/google';
+import { Roboto, Sarabun, IBM_Plex_Sans_Condensed, Bayon, Advent_Pro, Inter } from 'next/font/google';
 import "./globals.css";
 
 export const roboto = Roboto({
@@ -23,6 +23,27 @@ export const ibm = IBM_Plex_Sans_Condensed({
   variable: '--font-ibm',
 });
 
+export const bayon = Bayon({
+  subsets: ['latin'],
+  weight: ['400', '400'],
+  display: 'swap',
+  variable: '--font-bayon',
+});
+
+export const advent_bro = Advent_Pro({
+  subsets: ['latin'],
+  weight: ['400', '400'],
+  display: 'swap',
+  variable: '--font-advent',
+});
+
+export const inter = Inter({
+  subsets: ['latin'],
+  weight: ['500', '500'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
 export const metadata: Metadata = {
   title: "Obour STEM School",
   description: "Obour STEM School Official Website",
@@ -34,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable} ${sarabun.variable} ${ibm.variable}`}>
+    <html lang="en" className={`${roboto.variable} ${sarabun.variable} ${ibm.variable} ${bayon.variable} ${advent_bro.variable} ${inter.variable}`}>
       <body
         className={'bg-white'}
       >
