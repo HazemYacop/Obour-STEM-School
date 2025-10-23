@@ -49,6 +49,9 @@ export const inter = Inter({
 export const metadata: Metadata = {
   title: "Obour STEM School",
   description: "Obour STEM School Official Website",
+  icons: {
+    icon: "/school-logo-rounded.png",
+  },
 };
 
 export default function RootLayout({
