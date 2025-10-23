@@ -21,14 +21,14 @@ type SiteNavbarProps = {
 
 export function SiteNavbar({ brand, items, className = "" }: SiteNavbarProps) {
   const wrapperClasses = [
-    "fixed top-[40px] left-1/2 z-11 flex w-[750px] -translate-x-1/2 items-center justify-between rounded-[5px] bg-[rgba(255,255,255,0.25)] px-[30px] py-[7px] shadow-[0_0_20px_1px_rgba(0,0,0,0.15)] backdrop-blur-[20px]",
+    "fixed top-[40px] left-1/2 z-11 flex w-[750px] -translate-x-1/2 items-center justify-between rounded-[5px] bg-[rgba(255,255,255,0.25)] px-[30px] py-[9px] shadow-[0_0_20px_1px_rgba(0,0,0,0.15)] backdrop-blur-[20px]",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <div className={wrapperClasses}>
+    <header className={wrapperClasses}>
       <Link
         href={brand.href}
         className="flex items-center justify-center gap-[5px]"
@@ -63,7 +63,7 @@ export function SiteNavbar({ brand, items, className = "" }: SiteNavbarProps) {
           </Link>
         ))}
       </nav>
-    </div>
+    </header>
   );
 }
 export default SiteNavbar;
