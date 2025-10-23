@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { SliderDots } from "../ui/SliderDots";
 
@@ -72,13 +73,15 @@ export function ImageGallery({
           const isActive = index === activeIndex;
 
           return (
-            <div key={`${src}-${index}`} className="relative h-full w-full flex-shrink-0">
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[7s] ease-out"
-                style={{
-                  backgroundImage: `url(${src})`,
-                  transform: `scale(${isActive ? 1.05 : 1})`,
-                }}
+            <div key={`${src}-${index}`} className="relative h-full w-full flex-shrink-0 overflow-hidden">
+              <Image
+                src={src}
+                alt={`Gallery image ${index + 1}`}
+                fill
+                className="object-cover transition-transform duration-[7000ms] ease-out"
+                style={{ transform: `scale(${isActive ? 1.05 : 1})` }}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority={index === 0}
               />
             </div>
           );
