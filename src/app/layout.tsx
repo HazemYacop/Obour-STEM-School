@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto, Sarabun, IBM_Plex_Sans_Condensed, Bayon, Advent_Pro, Inter } from 'next/font/google';
 import "./globals.css";
+import { websiteStatus } from "@/config/siteStatus";
+import { MaintenanceNotice } from "@/components/system/MaintenanceNotice";
 
 export const roboto = Roboto({
   subsets: ['latin'],
@@ -54,12 +56,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pauseEndDate = websiteStatus.websitePauseEndDate;
+  const isMaintenanceActive =
+    websiteStatus.websitePaused &&
+    Number.isFinite(new Date(pauseEndDate).getTime()) &&
+    Date.now() < new Date(pauseEndDate).getTime();
+
   return (
     <html lang="en" className={`${roboto.variable} ${sarabun.variable} ${ibm.variable} ${bayon.variable} ${advent_bro.variable} ${inter.variable}`}>
       <body
         className={'bg-white'}
       >
-        {children}
+        {isMaintenanceActive ? (
+          <MaintenanceNotice resumeAt={pauseEndDate} />
+        ) : (
+          children
+        )}
       </body>
     </html>
   );
