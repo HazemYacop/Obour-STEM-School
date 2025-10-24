@@ -1,5 +1,5 @@
 export const websiteStatus = {
-  websitePaused: true,
+  websitePaused: false,
   websitePauseEndDate: "2025-10-27T16:00:00Z",
 };
 
