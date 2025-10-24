@@ -158,7 +158,7 @@ export default function Home() {
               <div className="relative mx-auto mb-4 w-fit rounded-[5px] bg-logo px-[14px] py-[10px] text-center text-sm font-sarabun font-[900] uppercase text-white sm:absolute sm:left-[20px] sm:top-[-20px] sm:mx-0 sm:mb-0">
                 School Overview
               </div>
-              <div className="flex flex-col items-center gap-8 rounded-[5px] border border-logo px-6 py-10 sm:px-8 sm:py-12 sm:pt-16 lg:items-start">
+              <div className="flex flex-col items-center gap-8 rounded-[5px] border border-logo px-6 py-10 sm:px-8 sm:py-12 sm:pt-16">
                 <p>
                   Obour STEM School, a non-profit public boarding school in Al-Qalyubia Governorate, Egypt, is known as  a "Benchmark of Innovation." The school selects the top 0.5% of 9th-grade students who demonstrate academic excellence and inspiring potential to contribute to the school's diversity, teamwork activities, and social responsibility. The school aims to prepare future scientists with adequate science, technology, engineering, and mathematics knowledge.
                 </p>
