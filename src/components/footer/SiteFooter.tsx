@@ -44,12 +44,12 @@ export function SiteFooter() {
 
   return (
     <>
-      <footer className="bg-logo flex flex-col items-center gap-[10px] py-[30px]">
-        <div className="flex justify-center gap-[60px]">
-          <div className="flex flex-col gap-[10px] max-w-[370px]">
+      <footer className="bg-logo mx-auto flex w-full max-w-[1200px] flex-col items-center gap-6 overflow-hidden rounded-t-[20px] px-5 py-10 sm:gap-8 sm:rounded-t-[24px] sm:py-[30px] lg:rounded-t-[32px] lg:px-10">
+        <div className="flex w-full max-w-[1100px] flex-col items-center gap-10 md:flex-row md:items-start md:justify-between md:gap-[60px]">
+          <div className="flex max-w-[370px] flex-col items-center gap-[10px] text-center md:items-start md:text-left">
             <Link
               href="/"
-              className="flex items-center gap-[5px]"
+              className="flex items-center gap-3 md:gap-[5px]"
               aria-label="Obour STEM"
             >
               <Image
@@ -61,40 +61,40 @@ export function SiteFooter() {
                 priority
               />
               <div className="flex flex-col justify-center text-logo">
-                <span className="font-bayon text-[20px] font-medium leading-[25px] text-white">
+                <span className="font-bayon text-[18px] font-medium leading-[22px] text-white sm:text-[20px] sm:leading-[25px]">
                   Obour STEM
                 </span>
-                <span className="font-advent text-[16px] leading-[15px] tracking-[2px] text-white">
+                <span className="font-advent text-[13px] leading-[15px] tracking-[2px] text-white sm:text-[16px]">
                   High School
                 </span>
               </div>
             </Link>
             <span className="text-white font-inter text-[13px]">Empowering young minds to think boldly, learn deeply, and shape the future. Where imagination meets purpose, and students design the world they want to live in.</span>
           </div>
-          <div className="flex flex-col gap-[20px]">
+          <div className="flex flex-col items-center gap-[20px] text-center md:items-start md:text-left">
             <span className="font-ibm font-[700] text-[15px] text-white">Quick Links</span>
-            <ul className="flex flex-col gap-[15px] pl-[50px]">
-              <Link href={"/"}><li className="relative text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white">About</li></Link>
-              <Link href={"/"}><li className="relative text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white">Programs</li></Link>
-              <Link href={"/"}><li className="relative text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white">Contests</li></Link>
+            <ul className="flex flex-col items-center gap-[15px] pl-0 md:items-start md:pl-[50px]">
+              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">About</li></Link>
+              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Programs</li></Link>
+              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Contests</li></Link>
             </ul>
           </div>
-          <div className="flex flex-col gap-[20px]">
+          <div className="flex flex-col items-center gap-[20px] text-center md:items-start md:text-left">
             <span className="font-ibm font-[700] text-[15px] text-white">Social Media</span>
-            <ul className="flex flex-col gap-[15px] pl-[50px]">
-              <Link href={"/"}><li className="relative text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white">Facebook</li></Link>
-              <Link href={"/"}><li className="relative text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white">LinkedIn</li></Link>
-              <Link href={"/"}><li className="relative text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white">Instagram</li></Link>
+            <ul className="flex flex-col items-center gap-[15px] pl-0 md:items-start md:pl-[50px]">
+              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Facebook</li></Link>
+              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">LinkedIn</li></Link>
+              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Instagram</li></Link>
             </ul>
           </div>
           <div className="group">
-            <div className="bg-white/70 rounded-[5px] py-[5px] flex justify-center">
+            <div className="bg-white/70 rounded-[5px] py-[5px] px-4 flex justify-center">
               <span className="text-logo font-ibm font-[900] text-[15px]">Designed & Coded By</span>
             </div>
             <button
               type="button"
               onClick={openBio}
-              className="font-roboto font-[900] text-[32px] uppercase bg-gradient-to-b from-white to-white/0 bg-clip-text text-transparent transition-all duration-300 hover:tracking-[2px] hover:drop-shadow-[0_0_12px_rgba(128,255,234,0.75)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white cursor-pointer"
+              className="font-roboto font-[900] text-[26px] uppercase bg-gradient-to-b from-white to-white/0 bg-clip-text text-transparent transition-all duration-300 hover:tracking-[2px] hover:drop-shadow-[0_0_12px_rgba(128,255,234,0.75)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white cursor-pointer sm:text-[32px]"
               aria-haspopup="dialog"
               aria-expanded={isBioOpen}
               aria-controls={bioDialogId}

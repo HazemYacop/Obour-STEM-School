@@ -90,7 +90,7 @@ export function HeroSection({
   };
 
   const wrapperClassNames = [
-    "relative flex flex-col justify-end overflow-hidden",
+    "relative mx-auto flex w-full max-w-[1920px] min-h-[520px] sm:min-h-[560px] lg:min-h-[640px] flex-col justify-end overflow-hidden rounded-b-[20px] sm:rounded-b-[24px] lg:rounded-b-[32px]",
     className,
   ]
     .filter(Boolean)
@@ -137,39 +137,47 @@ export function HeroSection({
 
       <div className={overlayClassNames} />
 
-      <div className="relative z-10 flex flex-col text-white">
-        <div className="flex flex-col gap-[27px] px-[var(--padding-root)] pb-[90px] pt-[300px]">
-          <div className="flex flex-col gap-[20px]">
-            {eyebrow && <p>{eyebrow}</p>}
-            <h1 className="leading-[30px]">{title}</h1>
-          </div>
-          <p className="w-full sm:w-[70%] md:w-[45%]">{description}</p>
-
-          {showCtas && (
-            <div className="flex flex-wrap items-center gap-[14px]">
-              {primaryCta && (
-                <PrimaryButton
-                  href={primaryCta.href}
-                  leadingIcon={primaryCta.leadingIcon}
-                  trailingIcon={primaryCta.trailingIcon}
-                >
-                  {primaryCta.label}
-                </PrimaryButton>
-              )}
-              {secondaryCta && (
-                <SecondaryButton href={secondaryCta.href} className="text-white">
-                  {secondaryCta.label}
-                </SecondaryButton>
-              )}
+      <div className="relative z-10 flex flex-col items-center text-white">
+        <div className="w-full px-6 pb-16 pt-[180px] sm:px-10 sm:pb-20 sm:pt-[240px] md:px-16 lg:px-20 lg:pb-[90px] lg:pt-[300px]">
+          <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-[20px]">
+            <div className="flex max-w-[720px] flex-col gap-[8px]">
+              {eyebrow && <p className="text-sm uppercase tracking-[3px] text-white/80 sm:text-base">{eyebrow}</p>}
+              <h1 className="leading-tight text-3xl sm:text-4xl md:text-[44px] md:leading-[50px]">{title}</h1>
             </div>
-          )}
+            <p className="w-full max-w-[560px] text-[16px] sm:text-base md:text-[17px] md:leading-relaxed">
+              {description}
+            </p>
+
+            {showCtas && (
+              <div className="flex w-full max-w-[460px] flex-wrap items-center gap-[14px]">
+                {primaryCta && (
+                  <PrimaryButton
+                    href={primaryCta.href}
+                    leadingIcon={primaryCta.leadingIcon}
+                    trailingIcon={primaryCta.trailingIcon}
+                    className="w-[200px]"
+                  >
+                    {primaryCta.label}
+                  </PrimaryButton>
+                )}
+                {secondaryCta && (
+                  <SecondaryButton
+                    href={secondaryCta.href}
+                    className="w-[200px] text-white"
+                  >
+                    {secondaryCta.label}
+                  </SecondaryButton>
+                )}
+              </div>
+            )}
+          </div>
         </div>
 
         <SliderDots
           count={slideCount}
           activeIndex={activeIndex}
           onSelect={handleSelectSlide}
-          className="mt-auto pb-[30px]"
+          className="mx-auto mt-auto pb-6 sm:pb-8 lg:pb-[30px]"
         />
       </div>
     </section>
