@@ -150,8 +150,10 @@ export function HeroSection({
     .join(" ");
 
   const overlayClassNames = [
-    "absolute inset-0 backdrop-blur-[12px]",
-    "bg-[rgba(0,0,0,0.35)]",
+    "absolute inset-0 backdrop-blur-[12px] lg:backdrop-blur-[10px]",
+    "bg-[rgba(0,0,0,0.35)] lg:bg-[rgba(0,0,0,0.4)]",
+    "lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
+    "lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
     "pointer-events-none",
     overlayClassName,
   ]
