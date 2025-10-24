@@ -44,7 +44,7 @@ export function SiteFooter() {
 
   return (
     <>
-      <footer className="bg-logo mx-auto flex w-full max-w-[1200px] flex-col items-center gap-6 overflow-hidden rounded-t-[20px] px-5 py-10 sm:gap-8 sm:rounded-t-[24px] sm:py-[30px] lg:rounded-t-[32px] lg:px-10">
+      <footer className="bg-logo flex w-full flex-col items-center gap-6 px-5 py-10 sm:gap-8 sm:py-[30px] lg:px-10 min-[1920px]:mx-auto min-[1920px]:max-w-[1200px] min-[1920px]:rounded-t-[24px] min-[2560px]:rounded-t-[32px] min-[1920px]:overflow-hidden">
         <div className="flex w-full max-w-[1100px] flex-col items-center gap-10 md:flex-row md:items-start md:justify-between md:gap-[60px]">
           <div className="flex max-w-[370px] flex-col items-center gap-[10px] text-center md:items-start md:text-left">
             <Link

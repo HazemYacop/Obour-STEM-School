@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { TouchEvent } from "react";
 import type { ReactNode } from "react";
 import { PrimaryButton, type ButtonIcon } from "../ui/PrimaryButton";
 import { SecondaryButton } from "../ui/SecondaryButton";
@@ -60,6 +61,8 @@ export function HeroSection({
   const [activeIndex, setActiveIndex] = useState(0);
   const slideCount = resolvedBackgrounds.length;
   const shouldAutoAdvance = slideCount > 1 && autoAdvanceInterval > 0;
+  const touchStartX = useRef<number | null>(null);
+  const touchDeltaX = useRef(0);
 
   useEffect(() => {
     if (slideCount === 0) {
@@ -69,17 +72,31 @@ export function HeroSection({
     setActiveIndex((prev) => (prev >= slideCount ? 0 : prev));
   }, [slideCount]);
 
+  const goToNext = useCallback(() => {
+    if (slideCount <= 1) {
+      return;
+    }
+    setActiveIndex((prev) => (prev + 1) % slideCount);
+  }, [slideCount]);
+
+  const goToPrev = useCallback(() => {
+    if (slideCount <= 1) {
+      return;
+    }
+    setActiveIndex((prev) => (prev - 1 + slideCount) % slideCount);
+  }, [slideCount]);
+
   useEffect(() => {
     if (!shouldAutoAdvance) {
       return;
     }
 
     const timer = window.setTimeout(() => {
-      setActiveIndex((prev) => (prev + 1) % slideCount);
+      goToNext();
     }, autoAdvanceInterval);
 
     return () => window.clearTimeout(timer);
-  }, [activeIndex, autoAdvanceInterval, shouldAutoAdvance, slideCount]);
+  }, [activeIndex, autoAdvanceInterval, shouldAutoAdvance, goToNext]);
 
   const handleSelectSlide = (index: number) => {
     if (index < 0 || index >= slideCount) {
@@ -89,18 +106,52 @@ export function HeroSection({
     setActiveIndex(index);
   };
 
+  const handleTouchStart = (event: TouchEvent<HTMLElement>) => {
+    if (slideCount <= 1) {
+      return;
+    }
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+    touchDeltaX.current = 0;
+  };
+
+  const handleTouchMove = (event: TouchEvent<HTMLElement>) => {
+    if (touchStartX.current === null) {
+      return;
+    }
+    touchDeltaX.current = (event.touches[0]?.clientX ?? 0) - touchStartX.current;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null) {
+      return;
+    }
+
+    const delta = touchDeltaX.current;
+    const threshold = 50;
+
+    if (Math.abs(delta) >= threshold) {
+      if (delta < 0) {
+        goToNext();
+      } else {
+        goToPrev();
+      }
+    }
+
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+  };
+
   const wrapperClassNames = [
-    "relative mx-auto flex w-full max-w-[1920px] min-h-[520px] sm:min-h-[560px] lg:min-h-[640px] flex-col justify-end overflow-hidden rounded-b-[20px] sm:rounded-b-[24px] lg:rounded-b-[32px]",
+    "relative flex w-full min-h-[520px] sm:min-h-[560px] lg:min-h-[640px] flex-col justify-end overflow-hidden",
+    "min-[1920px]:mx-auto min-[1920px]:max-w-[1200px] min-[1920px]:rounded-b-[24px] min-[2560px]:rounded-b-[32px]",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   const overlayClassNames = [
-    "absolute inset-0 backdrop-blur-[10px]",
-    "bg-[rgba(0,0,0,.4)]",
-    "[mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_49%,rgba(115,115,115,0)_100%)]",
-    "[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_49%,rgba(115,115,115,0)_100%)]",
+    "absolute inset-0 backdrop-blur-[12px]",
+    "bg-[rgba(0,0,0,0.35)]",
     "pointer-events-none",
     overlayClassName,
   ]
@@ -110,8 +161,13 @@ export function HeroSection({
   const showCtas = Boolean(primaryCta || secondaryCta);
 
   return (
-    <section className={wrapperClassNames}>
-      <div className="absolute inset-0 overflow-hidden">
+    <section
+      className={wrapperClassNames}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className="absolute inset-0 overflow-hidden min-[1920px]:rounded-b-[24px] min-[2560px]:rounded-b-[32px]">
         <div
           className="flex h-full w-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -135,21 +191,21 @@ export function HeroSection({
         </div>
       </div>
 
-      <div className={overlayClassNames} />
+      <div className={[overlayClassNames, "min-[1920px]:rounded-b-[24px] min-[2560px]:rounded-b-[32px]"].join(" ")} />
 
       <div className="relative z-10 flex flex-col items-center text-white">
-        <div className="w-full px-6 pb-16 pt-[180px] sm:px-10 sm:pb-20 sm:pt-[240px] md:px-16 lg:px-20 lg:pb-[90px] lg:pt-[300px]">
-          <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-[20px]">
-            <div className="flex max-w-[720px] flex-col gap-[8px]">
-              {eyebrow && <p className="text-sm uppercase tracking-[3px] text-white/80 sm:text-base">{eyebrow}</p>}
-              <h1 className="leading-tight text-3xl sm:text-4xl md:text-[44px] md:leading-[50px]">{title}</h1>
+        <div className="flex w-full justify-center px-6 pb-16 pt-[180px] text-center sm:px-10 sm:pb-20 sm:pt-[240px] md:px-16 lg:justify-start lg:px-[20] lg:pb-[50px] lg:pt-[300px] lg:text-left">
+          <div className="flex w-full max-w-[1100px] flex-col gap-[20px] items-center text-center lg:items-start lg:px-[80px] lg:text-left">
+            <div className="flex max-w-[720px] flex-col gap-[8px] items-center lg:items-start">
+              {eyebrow && <p className="text-sm uppercase tracking-[2px] text-white/80 sm:text-base">{eyebrow}</p>}
+              <h1 className="leading-tight text-3xl sm:text-4xl md:text-[44px] md:leading-[50px] lg:text-left">{title}</h1>
             </div>
-            <p className="w-full max-w-[560px] text-[16px] sm:text-base md:text-[17px] md:leading-relaxed">
+            <p className="w-full text-[16px] sm:text-base md:text-[17px] md:leading-relaxed sm:max-w-[80%] md:max-w-[70%] lg:max-w-[560px] mx-auto lg:mx-0">
               {description}
             </p>
 
             {showCtas && (
-              <div className="flex w-full max-w-[460px] flex-wrap items-center gap-[14px]">
+              <div className="flex w-full max-w-[460px] flex-wrap items-center justify-center gap-[14px] lg:justify-start">
                 {primaryCta && (
                   <PrimaryButton
                     href={primaryCta.href}
@@ -177,7 +233,7 @@ export function HeroSection({
           count={slideCount}
           activeIndex={activeIndex}
           onSelect={handleSelectSlide}
-          className="mx-auto mt-auto pb-6 sm:pb-8 lg:pb-[30px]"
+          className="mx-auto mt-auto hidden pb-6 sm:pb-8 md:flex lg:pb-[30px]"
         />
       </div>
     </section>

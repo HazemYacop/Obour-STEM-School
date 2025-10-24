@@ -94,3 +94,29 @@
     border-color: var(--color-logo);
   }
 }
+
+@layer base {
+  html {
+    scrollbar-width: thick;
+    scrollbar-color: var(--color-logo) rgba(18, 13, 49, 0.12);
+  }
+
+  html::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--color-white);
+    border-radius: var(--radius-global);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--color-logo), var(--color-sec));
+    border-radius: var(--radius-global);
+    border: 2px solid rgba(253, 255, 252, 0.4);
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--color-logo), var(--color-ter));
+  }
+}

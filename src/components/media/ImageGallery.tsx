@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SliderDots } from "../ui/SliderDots";
+import type { TouchEvent } from "react";
 
 type ImageGalleryProps = {
   images: string[];
@@ -19,6 +20,8 @@ export function ImageGallery({
 }: ImageGalleryProps) {
   const slides = useMemo(() => images.filter(Boolean), [images]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchDeltaX = useRef(0);
 
   useEffect(() => {
     if (!slides.length) {
@@ -28,17 +31,31 @@ export function ImageGallery({
     setActiveIndex((prev) => (prev >= slides.length ? 0 : prev));
   }, [slides.length]);
 
+  const goToNext = useCallback(() => {
+    if (slides.length <= 1) {
+      return;
+    }
+    setActiveIndex((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  const goToPrev = useCallback(() => {
+    if (slides.length <= 1) {
+      return;
+    }
+    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
   useEffect(() => {
     if (slides.length <= 1 || autoAdvanceInterval <= 0) {
       return;
     }
 
     const timer = window.setTimeout(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length);
+      goToNext();
     }, autoAdvanceInterval);
 
     return () => window.clearTimeout(timer);
-  }, [activeIndex, autoAdvanceInterval, slides.length]);
+  }, [activeIndex, autoAdvanceInterval, goToNext, slides.length]);
 
   if (!slides.length) {
     return null;
@@ -63,8 +80,48 @@ export function ImageGallery({
     setActiveIndex(index);
   };
 
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    if (slides.length <= 1) {
+      return;
+    }
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+    touchDeltaX.current = 0;
+  };
+
+  const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) {
+      return;
+    }
+    touchDeltaX.current = (event.touches[0]?.clientX ?? 0) - touchStartX.current;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null) {
+      return;
+    }
+
+    const delta = touchDeltaX.current;
+    const threshold = 50;
+
+    if (Math.abs(delta) >= threshold) {
+      if (delta < 0) {
+        goToNext();
+      } else {
+        goToPrev();
+      }
+    }
+
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+  };
+
   return (
-    <div className={wrapperClasses}>
+    <div
+      className={wrapperClasses}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div
         className="flex h-full w-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -94,7 +151,7 @@ export function ImageGallery({
           count={slides.length}
           activeIndex={activeIndex}
           onSelect={handleSelect}
-          className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-black/40 px-4 py-2"
+          className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 rounded-full bg-black/40 px-4 py-2 md:flex"
         />
       )}
     </div>
