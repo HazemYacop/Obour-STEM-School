@@ -26,7 +26,7 @@ export function SiteNavbar({ brand, items, className = "" }: SiteNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const wrapperClasses = [
     "fixed left-1/2 z-20 flex w-[90vw] sm:w-[80vw] lg:w-[750px] max-w-[750px] -translate-x-1/2 items-center justify-between rounded-[5px] bg-[rgba(255,255,255,0.25)] px-4 sm:px-6 lg:px-[30px] py-2 sm:py-[9px] top-4 sm:top-6 lg:top-[40px] shadow-[0_0_20px_1px_rgba(0,0,0,0.15)] backdrop-blur-[20px] transition-all duration-300 ease-in-out",
-    isMenuOpen ? "opacity-0 pointer-events-none scale-95" : "opacity-100 scale-100",
+    isMenuOpen ? "opacity-0 pointer-events-none scale-95" : "",
     className,
   ]
     .filter(Boolean)
