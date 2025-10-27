@@ -8,12 +8,50 @@ import { ImageGallery } from "@/components/media/ImageGallery";
 import { SiteFooter } from "@/components/footer/SiteFooter";
 import { RevealOnScroll } from "@/components/utility/RevealOnScroll";
 
-const aboutNavItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about", isActive: true },
-  { label: "Programs", href: "/programs" },
-  { label: "Contests", href: "/contests" },
-  { label: "Contact", href: "/contact" },
+const capstoneGalleryCaptions = [
+  {
+    title: "Prototype Showcase",
+    description: "Capstone teams present working models that solve real-world challenges.",
+  },
+  {
+    title: "Faculty Mentorship",
+    description: "Industry experts and professors guide students through each project milestone.",
+  },
+  {
+    title: "Interdisciplinary Design",
+    description: "Projects weave together engineering, coding, and scientific research.",
+  },
+  {
+    title: "Community Impact",
+    description: "Solutions aim to improve sustainability, infrastructure, and quality of life.",
+  },
+];
+
+const gradingScale = [
+  { grade: "A+", range: "95% to 100%" },
+  { grade: "A", range: "90% to 95%" },
+  { grade: "B+", range: "85% to 90%" },
+  { grade: "B", range: "80% to 85%" },
+  { grade: "C+", range: "75% to 80%" },
+  { grade: "C", range: "70% to 75%" },
+  { grade: "D+", range: "65% to 70%" },
+  { grade: "D", range: "61% to 65%" },
+  { grade: "Failed", range: "0% to 61%" },
+];
+
+const subjectCredits = [
+  { course: "Arabic", type: "Regular", credits: 3 },
+  { course: "Second Language", type: "Regular", credits: 3 },
+  { course: "English", type: "Honors", credits: 2 },
+  { course: "Mathematics", type: "Honors", credits: 3 },
+  { course: "Geology", type: "Honors", credits: 4 },
+  { course: "Biology", type: "Honors", credits: 4 },
+  { course: "Chemistry", type: "Honors", credits: 4 },
+  { course: "Physics", type: "Honors", credits: 4 },
+  { course: "Mechanics", type: "Honors", credits: 3 },
+  { course: "Religion", type: "Regular", credits: 2 },
+  { course: "Social Studies", type: "Regular", credits: 3 },
+  { course: "Civics", type: "Regular", credits: 3 },
 ];
 
 export default function AboutPage() {
@@ -27,7 +65,6 @@ export default function AboutPage() {
           title: "Obour STEM",
           subtitle: "High School",
         }}
-        items={aboutNavItems}
       />
 
       <HeroSection
@@ -98,22 +135,29 @@ export default function AboutPage() {
           </div>
         </RevealOnScroll>
         <RevealOnScroll className="w-full">
-          <div className="flex w-full flex-col gap-6 rounded-[5px] bg-linear-to-b from-[#120D31] to-[#120755]/90 px-5 py-8 text-white sm:px-[40px] sm:py-[40px]">
-            <h1 className="text-center text-white sm:text-left">Curriculum</h1>
-            <div className="flex w-full flex-col gap-8 lg:flex-row">
-              <div className="flex w-full flex-col gap-[10px] lg:flex-1">
-                <p>The curriculum emphasizes four key areas: sciences, humanities, arts, and sports. STEM fields of study include chemistry, physics, biology, geology, mechanics (applied mathematics), mathematics, and technology. Students mainly lead the class discussions in lectures regarding critical thinking and teamwork activities, applying their knowledge in labs under the supervision of leading experts.</p>
-                <p>On the humanities side, students take classes in Arabic, English, and Second Language (French or German). Social Studies, Civics, and Religion courses focus on promoting background diversity and open-mindedness. Students also need to attend art, library, or music to foster their artistic talents besides working on physical fitness in sports activities as a part of their preparation for athletic accomplishments and shaping up.</p>
-              </div>
-              <div className="grid w-full grid-cols-2 gap-[12px] sm:grid-cols-3 lg:grid-cols-4 lg:flex-1">
-                {["Physics","Chemistry","Mathematics","Mechanics","Biology","Geology","Arabic","English","French","Citizenship","Religion","P.E"].map((subject) => (
-                  <div key={subject} className="flex items-center justify-center rounded-[5px] border border-white text-white">
-                    {subject}
-                  </div>
-                ))}
+            <div className="flex w-full flex-col gap-6 rounded-[5px] bg-linear-to-b from-[#120D31] to-[#120755]/90 px-5 py-8 text-white sm:px-[40px] sm:py-[40px]">
+              <h1 className="text-center text-white sm:text-left">Curriculum</h1>
+              <div className="flex w-full flex-col gap-8 lg:flex-row">
+                <div className="flex w-full flex-col gap-[10px] lg:flex-1">
+                  <p>The curriculum emphasizes four key areas: sciences, humanities, arts, and sports. STEM fields of study include chemistry, physics, biology, geology, mechanics (applied mathematics), mathematics, and technology. Students mainly lead the class discussions in lectures regarding critical thinking and teamwork activities, applying their knowledge in labs under the supervision of leading experts.</p>
+                  <p>On the humanities side, students take classes in Arabic, English, and Second Language (French or German). Social Studies, Civics, and Religion courses focus on promoting background diversity and open-mindedness. Students also need to attend art, library, or music to foster their artistic talents besides working on physical fitness in sports activities as a part of their preparation for athletic accomplishments and shaping up.</p>
+                </div>
+                <div className="grid w-full grid-cols-2 gap-[12px] sm:grid-cols-3 lg:grid-cols-4 lg:flex-1">
+                  {["Physics","Chemistry","Mathematics","Mechanics","Biology","Geology","Arabic","English","French","Citizenship","Religion","P.E"].map((subject) => (
+                    <div
+                      key={subject}
+                      className="group relative flex select-none items-center justify-center overflow-hidden rounded-[5px] border border-white bg-white/5 px-4 py-4 text-white transition-all duration-300 hover:-translate-y-[6px] hover:border-[#F0A500] hover:bg-white/15 hover:shadow-[0_16px_45px_rgba(240,165,0,0.25)]"
+                    >
+                      <span className="relative z-[1] text-sm font-semibold uppercase tracking-wide">{subject}</span>
+                      <span
+                        className="pointer-events-none absolute inset-0 z-0 scale-95 rounded-[5px] bg-gradient-to-br from-transparent via-white/10 to-[#F0A500]/30 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
+                        aria-hidden
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
         </RevealOnScroll>
         <RevealOnScroll className="w-full">
           <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:items-start md:gap-[40px] lg:gap-[50px] lg:py-[20px]">
@@ -126,6 +170,7 @@ export default function AboutPage() {
                   '/home-hero-bg-4.jpg',
                 ]}
                 overlayClassName=""
+                slideCaptions={capstoneGalleryCaptions}
                 className="w-full h-[240px] sm:h-[320px] md:h-[580px] lg:h-full"
               />
             </div>
@@ -162,6 +207,50 @@ export default function AboutPage() {
               <p className="text-white">Obour STEM School is a very selective school, and it only accepts approximately 150 students out of 30,000 applicants per year. The school seeks students who have passion and desire to learn science, technology, engineering, and mathematics while intending to be active participants in their community.</p>
             </div>
           </div>
+        </RevealOnScroll>
+        <RevealOnScroll className="w-full">
+          <section className="flex w-full flex-col gap-8 overflow-hidden rounded-[5px] bg-linear-to-b from-[#120D31] to-[#120755]/90 p-6 text-white sm:p-10 lg:flex-row lg:gap-10">
+            <div className="relative flex w-full flex-col gap-5 lg:max-w-[45%]">
+              <h1 className="text-2xl font-semibold sm:text-3xl">Grading System</h1>
+              <p className="text-sm sm:text-base text-white/85">
+                Our honor courses push every learner to master STEM disciplines in depth and at speed. Instead of class ranking, students earn an unweighted GPA that reflects their course credit rigor. Grades 10 and 11 follow a letter-based scale, while grade 12 adopts a 100-point breakdown to prepare students for university admissions.
+              </p>
+              <div className="flex flex-col gap-4 rounded-[5px] border border-white/10 bg-white/5 p-6 sm:p-8">
+                <span className="text-sm font-semibold uppercase tracking-[3px] text-white/80">Grade Benchmarks</span>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  {gradingScale.map((item, index) => (
+                    <div
+                      key={`${item.grade}-${item.range}`}
+                      className={`group relative overflow-hidden rounded-[5px] border border-white/15 bg-white/10 p-4 text-center transition-all duration-300 hover:-translate-y-[4px] hover:border-[#F0A500] hover:bg-white/15 hover:shadow-[0_16px_45px_rgba(240,165,0,0.25)] ${index === 0 ? "sm:col-span-3" : ""}`}
+                    >
+                      <span className="text-lg font-semibold uppercase tracking-wide text-white">{item.grade}</span>
+                      <span className="mt-1 block text-sm text-white/80">{item.range}</span>
+                      <span
+                        className="pointer-events-none absolute inset-0 scale-95 rounded-[5px] bg-gradient-to-br from-transparent via-white/10 to-[#F0A500]/30 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
+                        aria-hidden
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="relative flex w-full flex-1 flex-col gap-4 rounded-[5px] border border-white/10 bg-white/5 p-5 text-sm text-white/90 sm:p-6 lg:p-8">
+              <span className="text-sm font-semibold uppercase tracking-[3px] text-[#F0A500]">Course Credits</span>
+              <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+                {subjectCredits.map((subject, idx) => (
+                  <div
+                    key={`${subject.course}-${subject.type}-${subject.credits}`}
+                    className={`group flex items-center justify-between gap-3 rounded-[5px] border border-white/10 bg-white/5 px-4 py-3 text-sm transition duration-300 hover:-translate-y-[3px] hover:border-[#F0A500] hover:bg-white/10 ${idx % 2 === 0 ? "bg-white/8" : ""}`}
+                  >
+                    <span className="text-base font-semibold text-white leading-tight">{subject.course}</span>
+                    <span className="inline-flex w-fit rounded-full border border-[#F0A500]/40 bg-[#F0A500]/20 px-3 py-[2px] text-xs font-semibold text-[#F0A500]">
+                      {subject.credits} credits
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </RevealOnScroll>
       </main>
 
