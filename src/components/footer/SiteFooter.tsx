@@ -74,9 +74,30 @@ export function SiteFooter() {
           <div className="flex flex-col items-center gap-[20px] text-center md:items-start md:text-left">
             <span className="font-ibm font-[700] text-[15px] text-white">Quick Links</span>
             <ul className="flex flex-col items-center gap-[15px] pl-0 md:items-start md:pl-[50px]">
-              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">About</li></Link>
-              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Programs</li></Link>
-              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Contests</li></Link>
+              <li>
+                <Link
+                  href="/about"
+                  className="relative block text-center font-inter text-[13px] text-white transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/programs"
+                  className="relative block text-center font-inter text-[13px] text-white transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left"
+                >
+                  Programs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contests"
+                  className="relative block text-center font-inter text-[13px] text-white transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left"
+                >
+                  Contests
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="flex flex-col items-center gap-[20px] text-center md:items-start md:text-left">
@@ -116,79 +137,68 @@ export function SiteFooter() {
           onClick={closeBio}
         >
           <div
-            className={`relative w-full max-w-[500px] overflow-hidden rounded-[14px] border border-logo/25 bg-white/95 p-[32px] text-[#0b1020] shadow-[0_25px_80px_rgba(27,32,57,0.22)] opacity-0 ${cardAnimationClass}`}
+            className={`relative w-full max-w-[420px] overflow-hidden rounded-[18px] border border-white/20 bg-white/95 px-8 py-10 text-[#0c1326] shadow-[0_28px_70px_rgba(12,19,38,0.2)] opacity-0 ${cardAnimationClass}`}
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="font-ibm text-[14px] uppercase tracking-[6px] text-logo/70 font-[600]">
-                  Creative Technologist
-                </span>
+            <button
+              type="button"
+              onClick={closeBio}
+              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-[#1d2233]/15 text-[#1d2233]/60 transition-colors duration-200 hover:border-[#1d2233]/35 hover:text-[#1d2233]"
+              aria-label="Close bio"
+            >
+              ✕
+            </button>
+
+            <div className="flex flex-col items-center gap-5 text-center">
+              <div className="flex h-[110px] w-[110px] items-center justify-center rounded-full bg-linear-to-br from-logo/10 to-logo/20 text-logo">
+                <Image
+                  src="/hazem-avatar.png"
+                  alt="Hazem Karam"
+                  width={96}
+                  height={96}
+                  className="h-24 w-24 rounded-full object-cover"
+                  priority
+                />
+              </div>
+              <div className="flex flex-col items-center gap-1">
                 <h2
                   id={`${bioDialogId}-title`}
-                  className="mt-[6px] font-roboto text-[28px] font-bold uppercase tracking-[4px] text-logo"
+                  className="font-ibm text-xl font-semibold uppercase tracking-[4px] text-logo"
                 >
                   Hazem Karam
                 </h2>
+                <span className="text-sm text-[#4b526a]">Full-stack Developer</span>
               </div>
-              <button
-                type="button"
-                onClick={closeBio}
-                className="rounded-full border border-logo/30 px-[14px] py-[6px] text-[12px] uppercase tracking-[2px] text-logo/70 transition-all duration-200 hover:border-logo hover:bg-logo/10 hover:text-logo cursor-pointer"
-                aria-label="Close bio"
-              >
-                Close
-              </button>
+              <p className="max-w-[320px] text-[13px] leading-relaxed text-[#343b54]">
+                I craft calm, intentional digital experiences for STEM communities—balancing clarity, animation, and reliable engineering to make learning feel effortless.
+              </p>
             </div>
 
-            <p className="mt-[22px] font-inter text-[14px] leading-[1.8] text-[#1d2233]">
-              I am a full-stack developer focused on building immersive digital experiences for STEM learners. With a background in interactive media and UX strategy, I transform complex concepts into engaging, future-ready web products.
-            </p>
-
-            <div className="mt-[24px] space-y-[12px] text-[13px] text-[#1d2233]/80">
-              <div className="flex gap-[12px]">
-                <span className="inline-flex min-w-[110px] font-ibm uppercase tracking-[3px] text-logo/60 font-[600]">
-                  Strengths
-                </span>
-                <span>Design systems, narrative UX, responsive engineering</span>
+            <div className="mt-8 flex flex-col gap-3">
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="mailto:hazemyacopbusiness@gmail.com"
+                  className="inline-flex items-center gap-2 rounded-full border border-logo/25 bg-logo/5 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-logo transition hover:border-logo/45 hover:bg-logo/12"
+                >
+                  Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/hazem-yacop/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-logo/25 bg-logo/5 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-logo transition hover:border-logo/45 hover:bg-logo/12"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://github.com/HazemYacop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-logo/25 bg-logo/5 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-logo transition hover:border-logo/45 hover:bg-logo/12"
+                >
+                  GitHub
+                </a>
               </div>
-              <div className="flex gap-[12px]">
-                <span className="inline-flex min-w-[110px] font-ibm uppercase tracking-[3px] text-logo/60 font-[600]">
-                  Stack
-                </span>
-                <span>Next.js, TypeScript, Tailwind CSS, Three.js, Figma</span>
-              </div>
-              <div className="flex gap-[12px]">
-                <span className="inline-flex min-w-[110px] font-ibm uppercase tracking-[3px] text-logo/60 font-[600]">
-                  Mission
-                </span>
-                <span>Elevate Egyptian STEM education with cinematic web storytelling</span>
-              </div>
-            </div>
-
-            <div className="mt-[28px] flex flex-wrap items-center gap-[12px]">
-              <a
-                href="mailto:hazemyacopbusiness@gmail.com"
-                className="rounded-full border border-logo/30 px-[18px] py-[10px] text-[12px] uppercase tracking-[3px] text-logo transition-all duration-200 hover:border-logo hover:bg-logo/10"
-              >
-                Email
-              </a>
-              <a
-                href="https://www.linkedin.com/in/hazem-yacop/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-logo/30 px-[18px] py-[10px] text-[12px] uppercase tracking-[3px] text-logo transition-all duration-200 hover:border-logo hover:bg-logo/10"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/HazemYacop"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-logo/30 px-[18px] py-[10px] text-[12px] uppercase tracking-[3px] text-logo transition-all duration-200 hover:border-logo hover:bg-logo/10"
-              >
-                GitHub
-              </a>
             </div>
           </div>
         </div>
