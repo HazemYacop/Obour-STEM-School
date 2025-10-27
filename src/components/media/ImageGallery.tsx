@@ -86,15 +86,16 @@ export function ImageGallery({
 
   const captionOverlayClass = [
     "pointer-events-none absolute inset-0",
-    "bg-gradient-to-t from-black/90 via-black/45 to-transparent",
+    "backdrop-blur-[14px] lg:backdrop-blur-[12px]",
+    "bg-gradient-to-t from-black/95 via-black/60 to-transparent",
   ]
     .filter(Boolean)
     .join(" ");
   const captionOverlayStyle = {
     maskImage:
-      "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 100%)",
+      "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0) 100%)",
     WebkitMaskImage:
-      "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 100%)",
+      "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0) 100%)",
   };
 
   const showControls = slides.length > 1;
@@ -172,14 +173,14 @@ export function ImageGallery({
               {showCaption && (
                 <>
                   <div className={captionOverlayClass} style={captionOverlayStyle} />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col gap-2 px-4 pb-8 text-center text-white sm:px-6 sm:pb-10 sm:text-left">
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col gap-2 px-4 pb-12 text-center text-white sm:px-6 sm:pb-[70px] sm:text-left">
                     {caption.title && (
-                      <h1 className="text-2xl font-bold uppercase tracking-[4px] sm:text-3xl">
+                      <h1 className="text-xl font-semibold leading-tight text-white sm:text-3xl">
                         {caption.title}
                       </h1>
                     )}
                     {caption.description && (
-                      <p className="text-sm text-white/85 sm:text-base">
+                      <p className="text-sm text-white/90 sm:text-base sm:text-white">
                         {caption.description}
                       </p>
                     )}
