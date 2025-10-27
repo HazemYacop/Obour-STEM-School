@@ -15,6 +15,33 @@ const programsNavItems = [
   { label: "Contact", href: "/contact" },
 ];
 
+const globalPrograms = [
+  { title: "Yale Young Global Scholars (YYGS)", imageSrc: "/programs/yygs.jpg" },
+  { title: "Yale Young Africa Scholars (YYAS)", imageSrc: "/programs/yyas.jpg" },
+  { title: "The Pioneer Research Program", imageSrc: "/programs/pioneer.jpg" },
+  { title: "The 2022 AFS Global STEM Academy", imageSrc: "/programs/afs.png" },
+  { title: "Leaders of Tomorrow Exchange Program", imageSrc: "/programs/lot.png" },
+  { title: "Competitive College Club (CCC)", imageSrc: "/programs/ccc.jpg" },
+  { title: "ALA 3 Weeks Summer Program", imageSrc: "/programs/ala.png" },
+  { title: "IYRC Summer Program (Medicine & Research)", imageSrc: "/programs/iyrc.jpg" },
+  { title: "QubitxQubit", imageSrc: "/programs/qubit.png" },
+  { title: "New York Junior Academy", imageSrc: "/programs/nyja.png" },
+  { title: "Moonshot Pirates", imageSrc: "/programs/moonshot.png" },
+  { title: "Girls Who Code", imageSrc: "/programs/gwc.png" },
+  { title: "1000 Girls 1000 Futures", imageSrc: "/programs/1000-girls.webp" },
+  { title: "Horizon Academic", imageSrc: "/programs/horizon.png" },
+  { title: "Nation Builders", imageSrc: "/programs/nation.png" },
+  { title: "Youth Science Journal (YSJ)", imageSrc: "/programs/ysj.jpg" },
+  { title: "IYNA Summer Course 2023", imageSrc: "/programs/iyna.png" },
+  { title: "YCM Dilact Group", imageSrc: "/programs/ycm.jpg" },
+  { title: "Kode With Klossy", imageSrc: "/programs/kwk.jpg" },
+  { title: "Explore Fellowship", imageSrc: "/programs/explore.webp" },
+  { title: "X-Culture", imageSrc: "/programs/x-culture.png" },
+  { title: "The African Middle Eastern Leadership Project", imageSrc: "/programs/amel.webp" },
+  { title: "Star Girls Africa", imageSrc: "/programs/sga.jpg" },
+  { title: "MedSTEMpowered", imageSrc: "/programs/msp.jpg" },
+];
+
 export default function ProgramsPage() {
   return (
     <div className="flex flex-col gap-10 sm:gap-12">
@@ -43,109 +70,34 @@ export default function ProgramsPage() {
 
       <main className="mx-auto flex w-full max-w-[1400px] flex-col gap-10 px-5 py-14 sm:gap-12 sm:px-8 lg:gap-[60px] lg:px-10">
         <RevealOnScroll className="w-full">
-          <div className="flex flex-col gap-[10px] justify-center items-center">
+          <section className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-4">
             <h1>Global Programs, Global Minds</h1>
-            <p className="w-[60%] text-center">Obour STEM alumni don’t just study — they explore the world’s leading academic and innovation programs, earning places in top global initiatives that shape future scientists, leaders, and changemakers.</p>
-          </div>
+            <p className="w-full max-w-[850px] px-3 text-center text-base sm:px-0 sm:text-lg">
+              Obour STEM alumni don't just study - they explore the world's leading academic and innovation programs, earning places in top global initiatives that shape future scientists, leaders, and changemakers.
+            </p>
+          </section>
         </RevealOnScroll>
         <RevealOnScroll className="w-full">
-          <div className="grid grid-cols-4 gap-[10px] justify-center items-center">
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/yygs.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Yale Young Global Scholars (YYGS)</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/yyas.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Yale Young Africa Scholars (YYAS)</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/pioneer.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">The Pioneer Research Program</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/afs.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">The 2022 AFS Global STEM Academy</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/lot.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Leaders of Tomorrow Exchange Program</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/ccc.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Competitive College Club (CCC)</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/ala.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">ALA 3 Weeks Summer Program</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/iyrc.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">IYRC Summer Program (Medicine & Research)</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/qubit.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">QubitxQubit</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/nyja.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">New York Junior Academy</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/moonshot.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Moonshot Pirates</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/gwc.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Girls Who Code</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/1000-girls.webp"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">1000 Girls 1000 Futures</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/horizon.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Horizon Academic</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/nation.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Nation Builders</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/ysj.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Youth Science Journal (YSJ)</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/iyna.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">IYNA Summer Course 2023</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/ycm.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">YCM Dilact Group</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/kwk.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Kode With Klossy</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/explore.webp"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Explore Fellowship</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/x-culture.png"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">X-Culture</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/amel.webp"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">The African Middle Eastern Leadership Project</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/sga.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">Star Girls Africa</p>
-            </div>
-            <div className="flex items-center px-[20px] py-[10px] gap-[10px] border-[0.4px] border-logo rounded-[5px] h-full">
-              <Image src={"/programs/msp.jpg"} alt="YYGS Program Logo" width={70} height={70} className="rounded-full"/>
-              <p className="text-[18px]">MedSTEMpowered</p>
-            </div>
+          <div className="grid w-full grid-cols-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+            {globalPrograms.map((program) => (
+              <article
+                key={program.title}
+                className="group relative flex h-full items-center gap-[10px] overflow-hidden rounded-[5px] border-[0.4px] border-logo bg-white px-[20px] py-[12px] transition-all duration-300 hover:-translate-y-1 hover:border-[#F0A500] hover:shadow-[0_16px_45px_rgba(18,13,49,0.12)]"
+              >
+                <span
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-[#F0A500]/10 to-[#120D31]/10 opacity-0 transition duration-300 group-hover:opacity-100"
+                  aria-hidden
+                />
+                <Image
+                  src={program.imageSrc}
+                  alt={`${program.title} Logo`}
+                  width={70}
+                  height={70}
+                  className="relative z-[1] h-[70px] w-[70px] rounded-full object-cover transition duration-300 group-hover:scale-105"
+                />
+                <p className="relative z-[1] text-[18px] leading-snug">{program.title}</p>
+              </article>
+            ))}
           </div>
         </RevealOnScroll>
       </main>
@@ -154,5 +106,3 @@ export default function ProgramsPage() {
     </div>
   );
 }
-
-
