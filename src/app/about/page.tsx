@@ -42,18 +42,18 @@ export default function AboutPage() {
         contentSpacingClassName="pt-[150px] sm:pt-[200px] lg:pt-[250px] pb-20 sm:pb-[90px] lg:pb-[100px]"
       />
 
-      <main className="mx-auto w-full max-w-[1400px] flex-col gap-10 px-5 sm:gap-12 sm:px-8 lg:gap-[56px] lg:px-10">
+      <main className="mx-auto flex w-full max-w-[1400px] flex-col gap-10 px-5 sm:gap-12 sm:px-8 lg:gap-[60px] lg:px-10">
         <RevealOnScroll className="w-full">
-          <div className="mx-auto flex w-full flex-col justify-center gap-8 md:flex-row md:items-start md:gap-[40px] lg:gap-[20px] lg:py-[20px]">
-            <div className="relative flex w-full max-w-[720px] flex-col gap-[50px] rounded-[5px] flex-1 basis-auto md:basis-[420px] lg:basis-[480px]">
-              <div className="flex flex-col gap-6 px-6 sm:px-8">
+          <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:items-start md:gap-[40px] lg:gap-[20px] lg:py-[20px]">
+            <div className="relative flex w-full flex-col gap-[50px] rounded-[5px] flex-1 basis-auto md:basis-[420px] lg:basis-[480px] min-w-0">
+              <div className="flex flex-col gap-6">
                 <h1 className="leading-tight md:leading-[50px] text-logo">Overview</h1>
                 <p>
                   Obour STEM School, a non-profit public boarding school in Al-Qalyubia Governorate, Egypt, is known as  a "Benchmark of Innovation." The school selects the top 0.5% of 9th-grade students who demonstrate academic excellence and inspiring potential to contribute to the school's diversity, teamwork activities, and social responsibility. The school aims to prepare future scientists with adequate science, technology, engineering, and mathematics knowledge.                </p>
                 <p>
                   Obour STEM School consistently seeks to provide state-of-the-art technological facilities, laboratories, and highly trained teachers, supported by the Ministry of Education, USAID, World Learning, and the ECASE project. We are the leading school in the country for providing teacher training programs with the resources necessary to meet educational challenges.                </p>
               </div>
-              <div className="flex flex-col gap-6 px-6 sm:px-8">
+              <div className="flex flex-col gap-6">
                 <h1 className="leading-tight md:leading-[50px] text-logo">Community</h1>
                 <p>
                   Obour STEM is a boarding school for self-learning and research with the intention of improving the students’ knowledge beyond the learning curriculum. It helps to develop autonomy, self-reliance, problem-solving skills, flexibility, and the ability to combine research with learning. The school began in 2018 and is admitting students from across the country, although it estimates that it has approximately 430 students for now; about 150 of them will be graduating this year.                </p>
@@ -61,6 +61,62 @@ export default function AboutPage() {
                   Students attend Obour STEM school from all around Egypt's governorates who live in either urban cities or rural villages. They assemble at the same table to share their ideas, perspectives, and opinions.                </p>
               </div>
             </div>
+            <div className="relative flex w-full flex-1 basis-auto md:basis-[420px] lg:basis-[380px] overflow-hidden rounded-[5px] self-stretch min-w-0">
+              <ImageGallery
+                images={[
+                  '/home-hero-bg-1.jpg',
+                  '/home-hero-bg-2.jpg',
+                  '/home-hero-bg-3.jpg',
+                  '/home-hero-bg-4.jpg',
+                ]}
+                overlayClassName=""
+                slideCaptions={[
+                  {
+                    title: "Physics Lab",
+                    description:
+                      "Students dive into hands-on labs and real-world challenges that bring science and math to life.",
+                  },
+                  {
+                    title: "Collaborative Projects",
+                    description:
+                      "Our cohorts work together on interdisciplinary projects tackling national and global issues.",
+                  },
+                  {
+                    title: "Cutting-Edge Facilities",
+                    description:
+                      "State-of-the-art laboratories and maker spaces support every research ambition.",
+                  },
+                  {
+                    title: "Inspiring Campus Life",
+                    description:
+                      "A close-knit boarding community that blends academic excellence with personal growth.",
+                  },
+                ]}
+                className="w-full h-[240px] sm:h-[320px] md:h-[580px] lg:h-full"
+              />
+            </div>
+          </div>
+        </RevealOnScroll>
+        <RevealOnScroll className="w-full">
+          <div className="flex w-full flex-col gap-6 rounded-[5px] bg-linear-to-b from-[#120D31] to-[#120755]/90 px-5 py-8 text-white sm:px-[40px] sm:py-[40px]">
+            <h1 className="text-center text-white sm:text-left">Curriculum</h1>
+            <div className="flex w-full flex-col gap-8 lg:flex-row">
+              <div className="flex w-full flex-col gap-[10px] lg:flex-1">
+                <p>The curriculum emphasizes four key areas: sciences, humanities, arts, and sports. STEM fields of study include chemistry, physics, biology, geology, mechanics (applied mathematics), mathematics, and technology. Students mainly lead the class discussions in lectures regarding critical thinking and teamwork activities, applying their knowledge in labs under the supervision of leading experts.</p>
+                <p>On the humanities side, students take classes in Arabic, English, and Second Language (French or German). Social Studies, Civics, and Religion courses focus on promoting background diversity and open-mindedness. Students also need to attend art, library, or music to foster their artistic talents besides working on physical fitness in sports activities as a part of their preparation for athletic accomplishments and shaping up.</p>
+              </div>
+              <div className="grid w-full grid-cols-2 gap-[12px] sm:grid-cols-3 lg:grid-cols-4 lg:flex-1">
+                {["Physics","Chemistry","Mathematics","Mechanics","Biology","Geology","Arabic","English","French","Citizenship","Religion","P.E"].map((subject) => (
+                  <div key={subject} className="flex items-center justify-center rounded-[5px] border border-white text-white">
+                    {subject}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </RevealOnScroll>
+        <RevealOnScroll className="w-full">
+          <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:items-start md:gap-[40px] lg:gap-[50px] lg:py-[20px]">
             <div className="relative flex w-full max-w-[680px] flex-1 basis-auto md:basis-[420px] lg:basis-[380px] overflow-hidden rounded-[5px] self-stretch">
               <ImageGallery
                 images={[
@@ -69,27 +125,41 @@ export default function AboutPage() {
                   '/home-hero-bg-3.jpg',
                   '/home-hero-bg-4.jpg',
                 ]}
-                slideCaptions={[
-                  {
-                    title: "Experiential Learning",
-                    description: "Students dive into hands-on labs and real-world challenges that bring science and math to life.",
-                  },
-                  {
-                    title: "Collaborative Projects",
-                    description: "Our cohorts work together on interdisciplinary projects tackling national and global issues.",
-                  },
-                  {
-                    title: "Cutting-Edge Facilities",
-                    description: "State-of-the-art laboratories and maker spaces support every research ambition.",
-                  },
-                  {
-                    title: "Inspiring Campus Life",
-                    description: "A close-knit boarding community that blends academic excellence with personal growth.",
-                  },
-                ]}
-                overlayClassName="backdrop-blur-[12px] lg:backdrop-blur-[10px] lg:[mask-image:linear-gradient(to_top,rgba(0,0,0,1)_0%,rgba(0,0,0,0.65)_60%,rgba(0,0,0,0)_100%)] lg:[-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,1)_0%,rgba(0,0,0,0.65)_60%,rgba(0,0,0,0)_100%)]"
+                overlayClassName=""
                 className="w-full h-[240px] sm:h-[320px] md:h-[580px] lg:h-full"
               />
+            </div>
+            <div className="relative flex w-full max-w-[720px] flex-col gap-[50px] rounded-[5px] flex-1 basis-auto md:basis-[420px] lg:basis-[480px]">
+              <div className="flex flex-col gap-6 items-start text-left md:items-end md:text-right">
+                <h1 className="leading-tight md:leading-[50px] text-logo">Capstone Project</h1>
+                <p>
+                  The school's project-based system combines curriculum with scientific projects, where students are expected to design and develop five engineering or experimental-based projects in five different semesters.
+                </p>
+                <p>
+                  Students work in groups of five, four, or three members in a cooperative learning manner to solve one of the eleven grand challenges that Egypt and the world face, following the EDP (Engineering Design Process). These projects are assessed by top-notch university professors at the end of the semester during the ‘Capstone Exhibition.‘.
+                </p>
+                <p>
+                  Capstone projects cultivate students’ research and engineering abilities, tackling real-life challenges in housing, energy systems and renewable resources, water availability and treatment, establishment of industrial basis, communication, agriculture, and food support.
+                </p>
+              </div>
+            </div>
+          </div>
+        </RevealOnScroll>
+        <RevealOnScroll className="w-full">
+          <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:items-start md:gap-[40px] lg:gap-[50px] lg:py-[20px]">
+            <div className="relative flex w-full flex-1 flex-col gap-[50px] rounded-[5px] basis-auto md:basis-1/2 min-w-0">
+              <div className="w-full flex flex-col gap-6">
+                <h1 className="leading-tight md:leading-[50px] text-logo">Qualification</h1>
+                <p>
+                  To qualify, applicants must either: achieve more than 98% in 9th Grade, or achieve more than 95% in 9th Grade, with 100% in one of Math, Science, or English.
+                </p>
+                <p>
+                  After meeting these criteria, applicants take four nationwide tests—English, Math, Science, and IQ. The top 150 students based on these test scores are admitted.
+                </p>
+              </div>
+            </div>
+            <div className="flex w-full flex-1 flex-col px-5 py-[30px] sm:px-[40px] sm:py-[40px] justify-center items-center bg-linear-to-b from-[#120D31] to-[#120755]/90 rounded-[5px] basis-auto md:basis-1/2 min-w-0 text-center sm:text-left">
+              <p className="text-white">Obour STEM School is a very selective school, and it only accepts approximately 150 students out of 30,000 applicants per year. The school seeks students who have passion and desire to learn science, technology, engineering, and mathematics while intending to be active participants in their community.</p>
             </div>
           </div>
         </RevealOnScroll>
