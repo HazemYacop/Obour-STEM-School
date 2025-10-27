@@ -5,11 +5,17 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SliderDots } from "../ui/SliderDots";
 import type { TouchEvent } from "react";
 
+type SlideCaption = {
+  title?: string;
+  description?: string;
+};
+
 type ImageGalleryProps = {
   images: string[];
   autoAdvanceInterval?: number;
   className?: string;
   overlayClassName?: string;
+  slideCaptions?: SlideCaption[];
 };
 
 export function ImageGallery({
@@ -17,8 +23,15 @@ export function ImageGallery({
   autoAdvanceInterval = 7000,
   className = "",
   overlayClassName = "",
+  slideCaptions,
 }: ImageGalleryProps) {
   const slides = useMemo(() => images.filter(Boolean), [images]);
+  const captions = useMemo(() => {
+    if (!slideCaptions || slideCaptions.length !== slides.length) {
+      return slides.map(() => ({ title: "", description: "" }));
+    }
+    return slideCaptions;
+  }, [slideCaptions, slides]);
   const [activeIndex, setActiveIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
   const touchDeltaX = useRef(0);
@@ -70,6 +83,19 @@ export function ImageGallery({
         .filter(Boolean)
         .join(" ")
     : null;
+
+  const captionOverlayClass = [
+    "pointer-events-none absolute inset-0",
+    "bg-gradient-to-t from-black/90 via-black/45 to-transparent",
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const captionOverlayStyle = {
+    maskImage:
+      "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 100%)",
+    WebkitMaskImage:
+      "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 100%)",
+  };
 
   const showControls = slides.length > 1;
 
@@ -128,6 +154,8 @@ export function ImageGallery({
       >
         {slides.map((src, index) => {
           const isActive = index === activeIndex;
+          const caption = captions[index] ?? { title: "", description: "" };
+          const showCaption = Boolean(caption.title || caption.description);
 
           return (
             <div key={`${src}-${index}`} className="relative h-full w-full flex-shrink-0 overflow-hidden">
@@ -140,6 +168,24 @@ export function ImageGallery({
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 priority={index === 0}
               />
+
+              {showCaption && (
+                <>
+                  <div className={captionOverlayClass} style={captionOverlayStyle} />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col gap-2 px-4 pb-8 text-center text-white sm:px-6 sm:pb-10 sm:text-left">
+                    {caption.title && (
+                      <h1 className="text-2xl font-bold uppercase tracking-[4px] sm:text-3xl">
+                        {caption.title}
+                      </h1>
+                    )}
+                    {caption.description && (
+                      <p className="text-sm text-white/85 sm:text-base">
+                        {caption.description}
+                      </p>
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           );
         })}

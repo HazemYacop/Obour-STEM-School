@@ -34,6 +34,7 @@ type HeroSectionProps = {
   autoAdvanceInterval?: number;
   forceCenteredContent?: boolean;
   overlayVariant?: "default" | "vertical";
+  contentSpacingClassName?: string;
 };
 
 export function HeroSection({
@@ -49,6 +50,7 @@ export function HeroSection({
   autoAdvanceInterval = 10000,
   forceCenteredContent = false,
   overlayVariant = "default",
+  contentSpacingClassName = "",
 }: HeroSectionProps) {
   const resolvedBackgrounds = useMemo(() => {
     if (backgroundImages?.length) {
@@ -153,19 +155,24 @@ export function HeroSection({
     .filter(Boolean)
     .join(" ");
 
-  const overlayClassNames = [
-    "absolute inset-0 pointer-events-none",
-    ...(overlayVariant === "vertical"
+  const overlayVariantClasses =
+    overlayVariant === "vertical"
       ? [
-          "backdrop-blur-[14px]",
-          "bg-gradient-to-t from-[#02040f]/90 via-[#02040f]/60 to-transparent",
+          "backdrop-blur-[12px] lg:backdrop-blur-[10px]",
+          "bg-[rgba(0,0,0,0.35)] lg:bg-[rgba(0,0,0,0.4)]",
+          "lg:[mask-image:linear-gradient(to_top,rgba(0,0,0,1)_0%,rgba(0,0,0,0.65)_60%,rgba(0,0,0,0)_100%)]",
+          "lg:[-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,1)_0%,rgba(0,0,0,0.65)_60%,rgba(0,0,0,0)_100%)]",
         ]
       : [
           "backdrop-blur-[12px] lg:backdrop-blur-[10px]",
           "bg-[rgba(0,0,0,0.35)] lg:bg-[rgba(0,0,0,0.4)]",
           "lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
           "lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
-        ]),
+        ];
+
+  const overlayClassNames = [
+    "absolute inset-0 pointer-events-none",
+    ...overlayVariantClasses,
     overlayClassName,
   ]
     .filter(Boolean)
@@ -217,7 +224,10 @@ export function HeroSection({
             "flex w-full px-6 pb-16 pt-[180px] text-center sm:px-10 sm:pb-20 sm:pt-[240px] md:px-16 lg:px-[20] lg:pb-[50px] lg:pt-[300px]",
             forceCenteredContent ? "justify-center" : "justify-center lg:justify-start",
             forceCenteredContent ? "text-center" : "text-center lg:text-left",
-          ].join(" ")}
+            contentSpacingClassName,
+          ]
+            .filter(Boolean)
+            .join(" ")}
         >
           <div
             className={[
@@ -237,7 +247,7 @@ export function HeroSection({
             <p
               className={[
                 "w-full text-[16px] sm:text-base md:text-[17px] md:leading-relaxed",
-                forceCenteredContent ? "max-w-[720px]" : "sm:max-w-[80%] md:max-w-[70%] lg:max-w-[560px]",
+                forceCenteredContent ? "max-w-[720px]" : "sm:max-w-[80%] md:max-w-[70%]",
               ].join(" ")}
             >
               {description}
