@@ -15,14 +15,6 @@ type ContestRecord = {
   entries: ContestEntry[];
 };
 
-const contestsNavItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Programs", href: "/programs" },
-  { label: "Contests", href: "/contests", isActive: true },
-  { label: "Contact", href: "/contact" },
-];
-
 const contestShowcase: ContestRecord[] = [
   {
     name: "Regeneron International Science and Engineering Fair (ISEF)",
@@ -274,7 +266,6 @@ export default function ContestsPage() {
           title: "Obour STEM",
           subtitle: "High School",
         }}
-        items={contestsNavItems}
       />
 
       <HeroSection
@@ -339,4 +330,3 @@ export default function ContestsPage() {
     </div>
   );
 }
-
