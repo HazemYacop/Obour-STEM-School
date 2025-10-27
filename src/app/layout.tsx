@@ -48,7 +48,7 @@ export const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Obour STEM School",
-  description: "Obour STEM School Official Website",
+  description: "Empowering young minds to think boldly, learn deeply, and shape the future. Where imagination meets purpose, and students design the world they want to live in.",
   icons: {
     icon: "/school-logo-rounded.png",
   },
