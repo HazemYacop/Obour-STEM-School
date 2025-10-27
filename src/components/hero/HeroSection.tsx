@@ -32,6 +32,8 @@ type HeroSectionProps = {
   className?: string;
   overlayClassName?: string;
   autoAdvanceInterval?: number;
+  forceCenteredContent?: boolean;
+  overlayVariant?: "default" | "vertical";
 };
 
 export function HeroSection({
@@ -45,6 +47,8 @@ export function HeroSection({
   className = "",
   overlayClassName = "",
   autoAdvanceInterval = 10000,
+  forceCenteredContent = false,
+  overlayVariant = "default",
 }: HeroSectionProps) {
   const resolvedBackgrounds = useMemo(() => {
     if (backgroundImages?.length) {
@@ -150,11 +154,18 @@ export function HeroSection({
     .join(" ");
 
   const overlayClassNames = [
-    "absolute inset-0 backdrop-blur-[12px] lg:backdrop-blur-[10px]",
-    "bg-[rgba(0,0,0,0.35)] lg:bg-[rgba(0,0,0,0.4)]",
-    "lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
-    "lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
-    "pointer-events-none",
+    "absolute inset-0 pointer-events-none",
+    ...(overlayVariant === "vertical"
+      ? [
+          "backdrop-blur-[14px]",
+          "bg-gradient-to-t from-[#02040f]/90 via-[#02040f]/60 to-transparent",
+        ]
+      : [
+          "backdrop-blur-[12px] lg:backdrop-blur-[10px]",
+          "bg-[rgba(0,0,0,0.35)] lg:bg-[rgba(0,0,0,0.4)]",
+          "lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
+          "lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0.6)_50%,rgba(115,115,115,0)_100%)]",
+        ]),
     overlayClassName,
   ]
     .filter(Boolean)
@@ -195,19 +206,50 @@ export function HeroSection({
 
       <div className={[overlayClassNames, "min-[1920px]:rounded-b-[24px] min-[2560px]:rounded-b-[32px]"].join(" ")} />
 
-      <div className="relative z-10 flex flex-col items-center text-white">
-        <div className="flex w-full justify-center px-6 pb-16 pt-[180px] text-center sm:px-10 sm:pb-20 sm:pt-[240px] md:px-16 lg:justify-start lg:px-[20] lg:pb-[50px] lg:pt-[300px] lg:text-left">
-          <div className="flex w-full max-w-[1100px] flex-col gap-[20px] items-center text-center lg:items-start lg:px-[80px] lg:text-left">
-            <div className="flex max-w-[720px] flex-col gap-[8px] items-center lg:items-start">
+      <div
+        className={[
+          "relative z-10 flex flex-col text-white",
+          forceCenteredContent ? "items-center" : "items-center lg:items-start",
+        ].join(" ")}
+      >
+        <div
+          className={[
+            "flex w-full px-6 pb-16 pt-[180px] text-center sm:px-10 sm:pb-20 sm:pt-[240px] md:px-16 lg:px-[20] lg:pb-[50px] lg:pt-[300px]",
+            forceCenteredContent ? "justify-center" : "justify-center lg:justify-start",
+            forceCenteredContent ? "text-center" : "text-center lg:text-left",
+          ].join(" ")}
+        >
+          <div
+            className={[
+              "flex w-full max-w-[1100px] flex-col gap-[20px]",
+              forceCenteredContent ? "items-center text-center" : "items-center text-center lg:items-start lg:px-[80px] lg:text-left",
+            ].join(" ")}
+          >
+            <div
+              className={[
+                "flex max-w-[720px] flex-col gap-[8px]",
+                forceCenteredContent ? "items-center text-center" : "items-center text-center lg:items-start lg:text-left",
+              ].join(" ")}
+            >
               {eyebrow && <p className="text-sm uppercase tracking-[2px] text-white/90 sm:text-base">{eyebrow}</p>}
-              <h1 className="leading-tight text-3xl sm:text-4xl md:text-[44px] md:leading-[50px] lg:text-left">{title}</h1>
+              <h1 className="leading-tight text-3xl sm:text-4xl md:text-[44px] md:leading-[50px]">{title}</h1>
             </div>
-            <p className="w-full text-[16px] sm:text-base md:text-[17px] md:leading-relaxed sm:max-w-[80%] md:max-w-[70%] mx-auto lg:mx-0">
+            <p
+              className={[
+                "w-full text-[16px] sm:text-base md:text-[17px] md:leading-relaxed",
+                forceCenteredContent ? "max-w-[720px]" : "sm:max-w-[80%] md:max-w-[70%] lg:max-w-[560px]",
+              ].join(" ")}
+            >
               {description}
             </p>
 
             {showCtas && (
-              <div className="flex w-full max-w-[460px] flex-wrap items-center justify-center gap-[14px] lg:justify-start">
+              <div
+                className={[
+                  "flex w-full max-w-[460px] flex-wrap items-center gap-[14px]",
+                  forceCenteredContent ? "justify-center" : "justify-center lg:justify-start",
+                ].join(" ")}
+              >
                 {primaryCta && (
                   <PrimaryButton
                     href={primaryCta.href}
