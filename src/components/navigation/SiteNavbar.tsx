@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-type NavItem = {
-  label: string;
-  href: string;
+import { PRIMARY_NAVIGATION, NavigationItem } from "@/config/navigation";
+
+type NavItem = NavigationItem & {
   isActive?: boolean;
 };
 
@@ -18,12 +18,13 @@ type SiteNavbarProps = {
     title: string;
     subtitle: string;
   };
-  items: NavItem[];
+  items?: NavItem[];
   className?: string;
 };
 
 export function SiteNavbar({ brand, items, className = "" }: SiteNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const resolvedItems = items ?? PRIMARY_NAVIGATION;
   const wrapperClasses = [
     "fixed left-1/2 z-20 flex w-[90vw] sm:w-[80vw] lg:w-[750px] max-w-[750px] -translate-x-1/2 items-center justify-between rounded-[5px] bg-[rgba(255,255,255,0.25)] px-4 sm:px-6 lg:px-[30px] py-2 sm:py-[9px] top-4 sm:top-6 lg:top-[40px] shadow-[0_0_20px_1px_rgba(0,0,0,0.15)] backdrop-blur-[20px] transition-all duration-300 ease-in-out",
     isMenuOpen ? "opacity-0 pointer-events-none scale-95" : "",
@@ -83,7 +84,7 @@ export function SiteNavbar({ brand, items, className = "" }: SiteNavbarProps) {
         </Link>
 
         <nav className="hidden flex-wrap items-center justify-end gap-2 text-xs md:flex md:gap-[6px] md:text-sm" aria-label="Primary">
-          {items.map(({ label, href }) => (
+          {resolvedItems.map(({ label, href }) => (
             <Link
               key={href}
               href={href}
@@ -179,7 +180,7 @@ export function SiteNavbar({ brand, items, className = "" }: SiteNavbarProps) {
           </div>
 
           <nav className="flex flex-col gap-4 text-logo" aria-label="Mobile primary">
-            {items.map(({ label, href }) => (
+            {resolvedItems.map(({ label, href }) => (
               <Link
                 key={`mobile-${href}`}
                 href={href}
