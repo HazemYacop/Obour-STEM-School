@@ -7,14 +7,6 @@ import { RevealOnScroll } from "@/components/utility/RevealOnScroll";
 
 import Image from "next/image";
 
-const programsNavItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Programs", href: "/programs", isActive: true },
-  { label: "Contests", href: "/contests" },
-  { label: "Contact", href: "/contact" },
-];
-
 const globalPrograms = [
   { title: "Yale Young Global Scholars (YYGS)", imageSrc: "/programs/yygs.jpg" },
   { title: "Yale Young Africa Scholars (YYAS)", imageSrc: "/programs/yyas.jpg" },
@@ -53,7 +45,6 @@ export default function ProgramsPage() {
           title: "Obour STEM",
           subtitle: "High School",
         }}
-        items={programsNavItems}
       />
 
       <HeroSection
