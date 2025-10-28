@@ -170,7 +170,7 @@ export function SiteFooter() {
                 <span className="text-sm text-[#4b526a]">Full-stack Developer</span>
               </div>
               <p className="max-w-[320px] text-[13px] leading-relaxed text-[#343b54]">
-                I craft calm, intentional digital experiences for STEM communities—balancing clarity, animation, and reliable engineering to make learning feel effortless.
+                Hi, I’m a student from Obour STEM School, Class of 2026 — a full-stack developer with a love for building things that actually work. This website is my small gift to my school and my amazing classmates. It’s a way to give something back to the place that’s been shaping how I think, learn, and create.
               </p>
             </div>
 

@@ -26,6 +26,7 @@ const alumniUniversities: RegionUniversities[] = [
       { name: "Stanford University", fileName: "stanford-university.jpg" },
       { name: "University of Pennsylvania", fileName: "university-of-pennsylvania.png" },
       { name: "University of Michigan", fileName: "university-of-michigan.png" },
+      { name: "Grinnell College", fileName: "grinnell-college.jpg" },
       { name: "New York University", fileName: "new-york-university.png" },
       { name: "Minerva University", fileName: "minerva-university.jpg" },
       { name: "University of Arizona", fileName: "university-of-arizona.png" },
@@ -35,22 +36,20 @@ const alumniUniversities: RegionUniversities[] = [
       { name: "University of Nebraska-Lincoln", fileName: "University of Nebraska-Lincoln.png" },
       { name: "Bucknell University", fileName: "bucknell-university.svg" },
       { name: "Franklin & Marshall College", fileName: "Franklin & Marshall College.jpg" },
+      { name: "Rochester Institute Of Technology", fileName: "rit.jpg" },
       { name: "Drexel University", fileName: "drexel-university.webp" },
       { name: "Seton Hall University", fileName: "Seton Hall University.png" },
       { name: "Howard University", fileName: "Howard University.png" },
       { name: "Ohio University", fileName: "ohio-university.png" },
       { name: "Florida Institute of Technology", fileName: "florida-institute-of-technology.jpg" },
+      { name: "Colgate University", fileName: "colgate-university.png" },
       { name: "Berea College", fileName: "berea-college.png" },
+      { name: "Macalester College", fileName: "macalester-college.png" },
+      { name: "Vassar College", fileName: "vassar-college.png" }, 
+      { name: "University At Baffalo", fileName: "university-at-baffalo.png" },
       { name: "Miami State University", fileName: "Miami State University.jpg" },
       { name: "La Roche University", fileName: "La Roche University.png" },
       { name: "Long Island University", fileName: "long island university.png" },
-    ],
-  },
-  {
-    region: "Hungary",
-    universities: [
-      { name: "Budapest University", fileName: "Budapest University.jpg" },
-      { name: "University of Debrecen", fileName: "University of Debrecen.jpg" },
     ],
   },
   {
@@ -63,8 +62,8 @@ const alumniUniversities: RegionUniversities[] = [
     ],
   },
   {
-    region: "Russia",
-    universities: [{ name: "Innopolis University", fileName: "Innopolis University.jpg" }],
+    region: "United Arab Emirates",
+    universities: [{ name: "Mohamed Bin Zayed Institute Of AI Technology", fileName: "mohamed-bin-zayed.jpg" }],
   },
   {
     region: "Turkey",
@@ -81,6 +80,17 @@ const alumniUniversities: RegionUniversities[] = [
       { name: "KTO Karatay University", fileName: "KTO Karatay University.jpg" },
       { name: "Sivas Cumhuriyet University", fileName: "Sivas Cumhuriyet University.png" },
     ],
+  },
+  {
+    region: "Hungary",
+    universities: [
+      { name: "Budapest University", fileName: "Budapest University.jpg" },
+      { name: "University of Debrecen", fileName: "University of Debrecen.jpg" },
+    ],
+  },
+  {
+    region: "Russia",
+    universities: [{ name: "Innopolis University", fileName: "Innopolis University.jpg" }],
   },
   {
     region: "Indonesia",

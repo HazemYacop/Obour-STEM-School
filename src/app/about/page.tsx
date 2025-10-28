@@ -10,20 +10,20 @@ import { RevealOnScroll } from "@/components/utility/RevealOnScroll";
 
 const capstoneGalleryCaptions = [
   {
-    title: "Prototype Showcase",
-    description: "Capstone teams present working models that solve real-world challenges.",
+    title: "Prototype Studio",
+    description: "Capstone teams iterate on engineering builds and refine their research plans.",
   },
   {
-    title: "Faculty Mentorship",
-    description: "Industry experts and professors guide students through each project milestone.",
+    title: "Lab Validation",
+    description: "Students run tests, gather data, and prepare evidence for final evaluations.",
   },
   {
-    title: "Interdisciplinary Design",
-    description: "Projects weave together engineering, coding, and scientific research.",
+    title: "Design Exhibition",
+    description: "Creative artifacts and storytelling bring technical ideas to life for visitors.",
   },
   {
-    title: "Community Impact",
-    description: "Solutions aim to improve sustainability, infrastructure, and quality of life.",
+    title: "Field Impact",
+    description: "Community deployments transform concepts into sustainable, real-world outcomes.",
   },
 ];
 
@@ -103,32 +103,32 @@ export default function AboutPage() {
             <div className="relative flex w-full flex-1 basis-auto md:basis-[420px] lg:basis-[380px] overflow-hidden rounded-[5px] self-stretch min-w-0">
               <ImageGallery
                 images={[
-                  '/home-hero-bg-1.jpg',
-                  '/home-hero-bg-2.jpg',
-                  '/home-hero-bg-3.jpg',
-                  '/home-hero-bg-4.jpg',
+                  '/class-work.jpg',
+                  '/class-work-2.jpg',
+                  '/planting-1.jpg',
+                  '/playground-1.jpg',
                 ]}
                 overlayClassName=""
                 slideCaptions={[
                   {
-                    title: "Physics Lab",
+                    title: "Active Classrooms",
                     description:
-                      "Students dive into hands-on labs and real-world challenges that bring science and math to life.",
+                      "Interactive lessons keep every learner engaged, curious, and ready to experiment.",
                   },
                   {
-                    title: "Collaborative Projects",
+                    title: "Team Collaboration",
                     description:
-                      "Our cohorts work together on interdisciplinary projects tackling national and global issues.",
+                      "Students tackle projects together, blending critical thinking with creative problem-solving.",
                   },
                   {
-                    title: "Cutting-Edge Facilities",
+                    title: "Community Engagement",
                     description:
-                      "State-of-the-art laboratories and maker spaces support every research ambition.",
+                      "Real-world initiatives cultivate empathy and civic responsibility beyond the classroom.",
                   },
                   {
-                    title: "Inspiring Campus Life",
+                    title: "Vibrant Campus Life",
                     description:
-                      "A close-knit boarding community that blends academic excellence with personal growth.",
+                      "A lively campus where downtime fosters friendship, balance, and resilience.",
                   },
                 ]}
                 className="w-full h-[240px] sm:h-[320px] md:h-[580px] lg:h-full"
@@ -166,10 +166,10 @@ export default function AboutPage() {
             <div className="relative flex w-full max-w-[680px] flex-1 basis-auto md:basis-[420px] lg:basis-[380px] overflow-hidden rounded-[5px] self-stretch">
               <ImageGallery
                 images={[
-                  '/home-hero-bg-1.jpg',
-                  '/home-hero-bg-2.jpg',
-                  '/home-hero-bg-3.jpg',
-                  '/home-hero-bg-4.jpg',
+                  '/class-work-3.jpg',
+                  '/lab-work.jpg',
+                  '/art-work-2.jpg',
+                  '/planting-2.jpg',
                 ]}
                 overlayClassName=""
                 slideCaptions={capstoneGalleryCaptions}

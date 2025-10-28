@@ -1,0 +1,41 @@
+
+*** Begin Patch
+*** Update File: src/components/hero/HeroSection.tsx
+@@
+-  const [activeIndex, setActiveIndex] = useState(0);
+-  const isMountedRef = useRef(false);
++  const [activeIndex, setActiveIndex] = useState(0);
++  const [hasMounted, setHasMounted] = useState(false);
+   const slideCount = resolvedBackgrounds.length;
+   const shouldAutoAdvance = slideCount > 1 && autoAdvanceInterval > 0;
+   const touchStartX = useRef<number | null>(null);
+   const touchDeltaX = useRef(0);
+*** End Patch
+*** Begin Patch
+*** Update File: src/components/hero/HeroSection.tsx
+@@
+-  useEffect(() => {
+-    if (slideCount === 0) {
+-      return;
+-    }
+-
+-    setActiveIndex((prev) => (prev >= slideCount ? 0 : prev));
+-  }, [slideCount]);
++  useEffect(() => {
++    setHasMounted(true);
++  }, []);
++
++  useEffect(() => {
++    if (slideCount === 0) {
++      return;
++    }
++
++    setActiveIndex((prev) => (prev >= slideCount ? 0 : prev));
++  }, [slideCount]);
+*** End Patch
+*** Begin Patch
+*** Update File: src/components/hero/HeroSection.tsx
+@@
+-                    transform: `scale(${isActive && isMountedRef.current ? 1.08 : 1})`,
++                    transform: `scale(${isActive && hasMounted ? 1.08 : 1})`,
+*** End Patch

@@ -11,10 +11,9 @@ import { RevealOnScroll } from "@/components/utility/RevealOnScroll";
 import Image from "next/image";
 export default function Home() {
   const heroBackgrounds = [
-    '/home-hero-bg-1.jpg',
     '/home-hero-bg-2.jpg',
+    '/playground-3.jpg',
     '/home-hero-bg-3.jpg',
-    '/home-hero-bg-4.jpg',
   ];
 
   const primaryCta = {
@@ -35,10 +34,13 @@ export default function Home() {
   };
 
   const overviewGalleryImages = [
-    "/home-hero-bg-1.jpg",
-    "/home-hero-bg-2.jpg",
-    "/home-hero-bg-3.jpg",
-    "/home-hero-bg-4.jpg",
+    "/class-work.jpg",
+    "/class-work-2.jpg",
+    "/lab-work.jpg",
+    "/playground-1.jpg",
+    "/planting-1.jpg",
+    "/art-work-1.jpg",
+    "/ans.jpg",
   ];
 
   const showcaseLogos = [

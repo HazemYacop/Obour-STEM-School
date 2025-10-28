@@ -65,10 +65,15 @@ export function HeroSection({
   }, [backgroundImage, backgroundImages]);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false);
   const slideCount = resolvedBackgrounds.length;
   const shouldAutoAdvance = slideCount > 1 && autoAdvanceInterval > 0;
   const touchStartX = useRef<number | null>(null);
   const touchDeltaX = useRef(0);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     if (slideCount === 0) {
@@ -201,7 +206,7 @@ export function HeroSection({
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
                     backgroundImage: `url(${src})`,
-                    transform: `scale(${isActive ? 1.08 : 1})`,
+                    transform: `scale(${isActive && hasMounted ? 1.08 : 1})`,
                     transition: "transform 10s ease-out",
                   }}
                 />
