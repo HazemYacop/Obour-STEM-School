@@ -10,7 +10,7 @@ import { RevealOnScroll } from "@/components/utility/RevealOnScroll";
 
 const capstoneGalleryCaptions = [
   {
-    title: "Prototype Studio",
+    title: "Prototypes",
     description: "Capstone teams iterate on engineering builds and refine their research plans.",
   },
   {
