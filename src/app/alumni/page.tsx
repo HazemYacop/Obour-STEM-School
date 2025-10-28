@@ -116,7 +116,7 @@ export default function AlumniPage() {
       <HeroSection
         title="Alumni Destinations"
         description="Our graduates join leading universities around the world, carrying forward the spirit of innovation and leadership they honed at Obour STEM."
-        backgroundImage="/home-hero-bg-4.jpg"
+        backgroundImage="/home-hero-bg-1.jpg"
         autoAdvanceInterval={0}
         forceCenteredContent
         overlayVariant="vertical"
