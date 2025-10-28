@@ -50,7 +50,7 @@ export default function ApplicationProcessPage() {
               </p>
             </div>
             <a
-              href="/contact"
+              href="/#contact"
               className="inline-flex items-center justify-center rounded-[4px] bg-[#F0A500] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#120D31] transition hover:bg-[#ffbb1b]"
             >
               Contact Admissions

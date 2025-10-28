@@ -50,7 +50,7 @@ export default function ProgramsPage() {
       <HeroSection
         title="Programs"
         description={
-          "A dynamic STEM ecosystem where students design, test, and launch solutions that advance Egypt's future. Explore the learning pathways that turn curiosity into lifelong impact."
+          "Our students have been selected to participate in highly competitive global programs, representing Egypt in prestigious international research, innovation, and leadership initiatives."
         }
         backgroundImage="/programs-hero-bg.jpg"
         autoAdvanceInterval={0}
@@ -73,19 +73,21 @@ export default function ProgramsPage() {
             {globalPrograms.map((program) => (
               <article
                 key={program.title}
-                className="group relative flex h-full items-center gap-[10px] overflow-hidden rounded-[5px] border-[0.4px] border-logo bg-white px-[20px] py-[12px] transition-all duration-300 hover:-translate-y-1 hover:border-[#F0A500] hover:shadow-[0_16px_45px_rgba(18,13,49,0.12)]"
+                className="group relative flex h-full items-center gap-[12px] overflow-hidden rounded-[5px] border border-logo/20 bg-white px-[20px] py-[12px] transition-all duration-300 hover:-translate-y-1 hover:border-[#F0A500] hover:shadow-[0_16px_45px_rgba(18,13,49,0.12)]"
               >
                 <span
                   className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-[#F0A500]/10 to-[#120D31]/10 opacity-0 transition duration-300 group-hover:opacity-100"
                   aria-hidden
                 />
-                <Image
-                  src={program.imageSrc}
-                  alt={`${program.title} Logo`}
-                  width={70}
-                  height={70}
-                  className="relative z-[1] h-[70px] w-[70px] rounded-full object-cover transition duration-300 group-hover:scale-105"
-                />
+                <div className="relative z-[1] flex h-[70px] w-[70px] items-center justify-center overflow-hidden rounded-[12px] transition duration-300 group-hover:scale-105">
+                  <Image
+                    src={program.imageSrc}
+                    alt={`${program.title} Logo`}
+                    width={70}
+                    height={70}
+                    className="h-[70px] w-[70px] object-contain"
+                  />
+                </div>
                 <p className="relative z-[1] text-[18px] leading-snug">{program.title}</p>
               </article>
             ))}

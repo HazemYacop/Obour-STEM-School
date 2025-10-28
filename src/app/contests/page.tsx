@@ -27,20 +27,12 @@ const contestShowcase: ContestRecord[] = [
         summary:
           "5 International Finalists; 2nd & 3rd place Grand Awards in Behavioral Science & Systems Software; 2 Special Awards",
       },
+      {
+        year: "2025",
+        summary:
+          "6 International Finalists; 4th place Grand Award in Systems Software; 1 Special Award",
+      },
     ],
-  },
-  {
-    name: "Egyptian Science and Engineering Fair (ESEF)",
-    entries: [
-      { year: "2021", summary: "17 Finalists" },
-      { year: "2022", summary: "13 Finalists; 2 projects won 1st place, 2 projects won 2nd place" },
-      { year: "2023", summary: "19 Finalists; 2 projects won 1st place, 2 projects won 2nd place" },
-      { year: "2024", summary: "20 Finalists; 3 projects won 1st place, 2 projects won 2nd place" },
-    ],
-  },
-  {
-    name: "Egypt IoT and AI Challenge",
-    entries: [{ year: "2021", summary: "1st place" }],
   },
   {
     name: "Nile University Undergraduate Research Forum (UGRF)",
@@ -49,6 +41,16 @@ const contestShowcase: ContestRecord[] = [
       { year: "2021", summary: "3 Finalists; 1st and 3rd place winners" },
       { year: "2023", summary: "4 Finalists; 1st place in Engineering Track, 2nd place in School Track, 3rd Best Electronic Device" },
       { year: "2024", summary: "12 Finalists; 2nd place in Sustainable Technology Track" },
+      { year: "2025", summary: "3 Finalists" },
+    ],
+  },
+  {
+    name: "EU Contest for Young Scientists (EUCYS)",
+    entries: [
+      { year: "2022", summary: "1 Finalist; Bright Young Minds Award" },
+      { year: "2024", summary: "4 Finalists" },
+      { year: "2025", summary: "3 Finalists" },
+
     ],
   },
   {
@@ -64,13 +66,16 @@ const contestShowcase: ContestRecord[] = [
     entries: [
       { year: "2022", summary: "1st place winner" },
       { year: "2024", summary: "12 Finalists; 1st and 3rd place winners; Best of Category" },
+      { year: "2025", summary: "20 Finalists; 1st and 3rd place winners; 2 Best of Categories" },
     ],
   },
   {
-    name: "EU Contest for Young Scientists (EUCYS)",
+    name: "Egyptian Science and Engineering Fair (ESEF)",
     entries: [
-      { year: "2022", summary: "1 Finalist; Bright Young Minds Award" },
-      { year: "2024", summary: "4 Finalists" },
+      { year: "2021", summary: "17 Finalists" },
+      { year: "2022", summary: "13 Finalists; 2 projects won 1st place, 2 projects won 2nd place" },
+      { year: "2023", summary: "19 Finalists; 2 projects won 1st place, 2 projects won 2nd place" },
+      { year: "2024", summary: "20 Finalists; 3 projects won 1st place, 2 projects won 2nd place" },
     ],
   },
   {
@@ -98,6 +103,10 @@ const contestShowcase: ContestRecord[] = [
       { year: "2023", summary: "1 Finalist" },
       { year: "2024", summary: "4 Finalists" },
     ],
+  },
+  {
+    name: "Egypt IoT and AI Challenge",
+    entries: [{ year: "2021", summary: "1st place" }],
   },
   {
     name: "IUPAC Periodic Table Challenge",

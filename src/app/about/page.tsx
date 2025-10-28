@@ -36,12 +36,13 @@ const gradingScale = [
   { grade: "C", range: "70% to 75%" },
   { grade: "D+", range: "65% to 70%" },
   { grade: "D", range: "61% to 65%" },
-  { grade: "Failed", range: "0% to 61%" },
+  { grade: "F", range: "0% to 61%" },
 ];
 
 const subjectCredits = [
   { course: "Arabic", type: "Regular", credits: 3 },
-  { course: "Second Language", type: "Regular", credits: 3 },
+  { course: "French", type: "Regular", credits: 3 },
+  { course: "German", type: "Regular", credits: 3 },
   { course: "English", type: "Honors", credits: 2 },
   { course: "Mathematics", type: "Honors", credits: 3 },
   { course: "Geology", type: "Honors", credits: 4 },
@@ -52,6 +53,7 @@ const subjectCredits = [
   { course: "Religion", type: "Regular", credits: 2 },
   { course: "Social Studies", type: "Regular", credits: 3 },
   { course: "Civics", type: "Regular", credits: 3 },
+  { course: "Computer Science", type: "Regular", credits: 2 },
 ];
 
 export default function AboutPage() {
@@ -136,7 +138,7 @@ export default function AboutPage() {
         </RevealOnScroll>
         <RevealOnScroll className="w-full">
             <div className="flex w-full flex-col gap-6 rounded-[5px] bg-linear-to-b from-[#120D31] to-[#120755]/90 px-5 py-8 text-white sm:px-[40px] sm:py-[40px]">
-              <h1 className="text-center text-white sm:text-left">Curriculum</h1>
+              <h1 className="text-center text-white">Curriculum</h1>
               <div className="flex w-full flex-col gap-8 lg:flex-row">
                 <div className="flex w-full flex-col gap-[10px] lg:flex-1">
                   <p>The curriculum emphasizes four key areas: sciences, humanities, arts, and sports. STEM fields of study include chemistry, physics, biology, geology, mechanics (applied mathematics), mathematics, and technology. Students mainly lead the class discussions in lectures regarding critical thinking and teamwork activities, applying their knowledge in labs under the supervision of leading experts.</p>
@@ -236,11 +238,11 @@ export default function AboutPage() {
             </div>
             <div className="relative flex w-full flex-1 flex-col gap-4 rounded-[5px] border border-white/10 bg-white/5 p-5 text-sm text-white/90 sm:p-6 lg:p-8">
               <span className="text-sm font-semibold uppercase tracking-[3px] text-[#F0A500]">Course Credits</span>
-              <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2">
                 {subjectCredits.map((subject, idx) => (
                   <div
                     key={`${subject.course}-${subject.type}-${subject.credits}`}
-                    className={`group flex items-center justify-between gap-3 rounded-[5px] border border-white/10 bg-white/5 px-4 py-3 text-sm transition duration-300 hover:-translate-y-[3px] hover:border-[#F0A500] hover:bg-white/10 ${idx % 2 === 0 ? "bg-white/8" : ""}`}
+                    className={`group flex items-center justify-between gap-3 rounded-[5px] border border-white/10 bg-white/5 px-4 py-5 text-sm transition duration-300 hover:-translate-y-[3px] hover:border-[#F0A500] hover:bg-white/10 ${idx % 2 === 0 ? "bg-white/8" : ""}`}
                   >
                     <span className="text-base font-semibold text-white leading-tight">{subject.course}</span>
                     <span className="inline-flex w-fit rounded-full border border-[#F0A500]/40 bg-[#F0A500]/20 px-3 py-[2px] text-xs font-semibold text-[#F0A500]">

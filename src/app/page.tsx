@@ -43,17 +43,17 @@ export default function Home() {
 
   const showcaseLogos = [
     { src: "/contests/isef.png", alt: "ISEF Logo" },
+    { src: "/contests/eucys.png", alt: "EUCYS Logo" },
+    { src: "/contests/ibo.jpg", alt: "IBO Logo" },
+    { src: "/contests/ipsyo.jpg", alt: "IPSYO Logo" },
+    { src: "/contests/iupac.webp", alt: "IUPAC Logo" },
+    { src: "/contests/zayed-sustainability-prize.jpg", alt: "ZSP Logo" },
+    { src: "/contests/sjwp.jpg", alt: "Stockholm Junior Water Prize" },
     { src: "/contests/eistf.webp", alt: "EISTF Logo" },
     { src: "/contests/egypt-iot-and-ai-challenge.png", alt: "EIAC Logo" },
     { src: "/contests/ugrf.jpg", alt: "UGRF Logo" },
     { src: "/contests/cairo-water-week.png", alt: "CWW Logo" },
     { src: "/contests/blast-off.jpg", alt: "BlastOff Logo" },
-    { src: "/contests/eucys.png", alt: "EUCYS Logo" },
-    { src: "/contests/zayed-sustainability-prize.jpg", alt: "ZSP Logo" },
-    { src: "/contests/iupac.webp", alt: "IUPAC Logo" },
-    { src: "/contests/ibo.jpg", alt: "IBO Logo" },
-    { src: "/contests/ipsyo.jpg", alt: "IPSYO Logo" },
-    { src: "/contests/ebo.jpg", alt: "EBO Logo" },
   ];
 
   const programLogos = [
@@ -267,7 +267,7 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-[1100px] flex-col items-center gap-10 py-12 lg:flex-row lg:items-center lg:justify-center lg:gap-[160px] lg:py-[30px]">
             <div className="flex w-full max-w-[620px] flex-col items-center gap-6 text-center lg:items-start lg:text-left">
               <h1>Contests</h1>
-              <p>STEM Obour students don’t just learn science—they live it. From robotics and AI challenges to national math and research fairs, our teams consistently rank among the best. Every competition is more than a trophy hunt; it’s a chance to test ideas, break limits, and turn creativity into real-world impact. Their success stories reflect the spirit of a generation built to solve tomorrow’s problems today.</p>
+              <p>Obour STEM School stands as one of the leading high schools in the MENA region and Africa, recognized for its remarkable achievements across global scientific and innovation platforms. Our students consistently excel in prestigious competitions such as ISEF, EUCYS, and international Olympiads, showcasing world-class research and creativity. Beyond science fairs, Obour STEM teams have earned top honors in hackathons, sustainability challenges, and technology innovation contests.</p>
               <SecondaryButton href="/contests" className="w-full sm:w-[200px]">
                 Read More
               </SecondaryButton>

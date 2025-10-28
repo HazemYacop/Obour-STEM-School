@@ -69,7 +69,7 @@ export function SiteFooter() {
                 </span>
               </div>
             </Link>
-            <span className="text-white font-inter text-[13px]">Empowering young minds to think boldly, learn deeply, and shape the future. Where imagination meets purpose, and students design the world they want to live in.</span>
+            <span className="text-white font-inter text-[13px]">Empowering young minds to think boldly, learn deeply, and shape the future. Where imagination meets purpose, and students design the world they want to live in. <br/> CEEB code: 648037</span>
           </div>
           <div className="flex flex-col items-center gap-[20px] text-center md:items-start md:text-left">
             <span className="font-ibm font-[700] text-[15px] text-white">Quick Links</span>
@@ -103,9 +103,9 @@ export function SiteFooter() {
           <div className="flex flex-col items-center gap-[20px] text-center md:items-start md:text-left">
             <span className="font-ibm font-[700] text-[15px] text-white">Social Media</span>
             <ul className="flex flex-col items-center gap-[15px] pl-0 md:items-start md:pl-[50px]">
-              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Facebook</li></Link>
-              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">LinkedIn</li></Link>
-              <Link href={"/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Instagram</li></Link>
+              <Link href={"https://www.facebook.com/profile.php?id=61561592574709"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Facebook</li></Link>
+              <Link href={"https://www.linkedin.com/school/obour-stem/"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">LinkedIn</li></Link>
+              <Link href={"mailto:Counselor@stemkalubya.moe.edu.eg"}><li className="relative text-center text-white font-inter text-[13px] transition-all duration-200 hover:translate-x-[4px] hover:drop-shadow-[0_0_8px_rgba(128,255,234,0.75)] before:absolute before:left-0 before:-bottom-[4px] before:h-[1px] before:w-0 before:bg-white/60 before:transition-all before:duration-200 hover:before:w-full hover:before:bg-white md:text-left">Email</li></Link>
             </ul>
           </div>
           <div className="group">
