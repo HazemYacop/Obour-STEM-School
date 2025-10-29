@@ -40,7 +40,6 @@ export default function Home() {
     "/playground-1.jpg",
     "/planting-1.jpg",
     "/art-work-1.jpg",
-    "/ans.jpg",
   ];
 
   const showcaseLogos = [
